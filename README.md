@@ -1,1 +1,1 @@
-# -furniture-e-commerce
+# -clothes-e-commerce
