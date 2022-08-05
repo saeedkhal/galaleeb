@@ -3,7 +3,7 @@ import React from 'react';
 function HomeFooter(props) {
   return (
     <footer className="home-footer">
-      © 2022 <span>ComfySloth</span> All rights reserved
+      © 2022 <span>Saeed Khaled</span> All rights reserved
     </footer>
   );
 }

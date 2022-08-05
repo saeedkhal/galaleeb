@@ -24,10 +24,10 @@ function Navbare(props) {
         </ul>
         <div className="cart-login">
           <article className="cart">
-            <a href="/cart">
+            <Link to="/cart">
               cart <BsCartFill />
               <span className="cart-amount">5</span>
-            </a>
+            </Link>
           </article>
           <article className="login">
             <a href="/login">
