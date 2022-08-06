@@ -7,7 +7,7 @@ function ShopingItems(props) {
         <article>Item</article>
         <article>Size</article>
         <article>Quantity</article>
-        <article>SubTotal</article>
+        <article className="subtotal-header">SubTotal</article>
       </section>
       <section className="shop-items">
         <ShopingItem />

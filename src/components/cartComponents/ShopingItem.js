@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
+import { ImCross } from 'react-icons/im';
 import { ImBin } from 'react-icons/im';
 import { VscCircleLargeFilled } from 'react-icons/vsc';
 import { TiPlus, TiMinus } from 'react-icons/ti';
@@ -7,7 +7,7 @@ import shop from '../../assets/images/shop.jpg';
 function ShopingItem() {
   return (
     <main className="shop-item-container">
-      <section>
+      <section className="shop-item">
         <img src={shop} alt="shop" />
         <article>
           <h4>Name</h4>
@@ -24,9 +24,12 @@ function ShopingItem() {
         <TiPlus />
       </section>
       <section>
-        222$
-        <button className="margin-left">
+        <span className="subtotal">22$</span>
+        <button className="im-bin">
           <ImBin />
+        </button>
+        <button className="im-cross">
+          <ImCross />
         </button>
       </section>
     </main>
