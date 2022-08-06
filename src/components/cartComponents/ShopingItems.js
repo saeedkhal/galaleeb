@@ -1,5 +1,6 @@
 import React from 'react';
 import ShopingItem from './ShopingItem';
+import CeckCart from './CeckCart';
 function ShopingItems(props) {
   return (
     <main className="container shop-items-container">
@@ -13,6 +14,11 @@ function ShopingItems(props) {
         <ShopingItem />
         <ShopingItem />
       </section>
+      <section className="continue-clear">
+        <button>continue shopping</button>
+        <button>clear cart</button>
+      </section>
+      <CeckCart />
     </main>
   );
 }

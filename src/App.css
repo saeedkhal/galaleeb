@@ -739,9 +739,72 @@ button {
 .subtotal {
   color: var(--clr-grey-3);
 }
+.continue-clear {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+}
+.continue-clear button {
+  padding: 5px;
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  color: var(--clr-grey-10);
+  border-radius: 5px;
+  cursor: pointer;
+}
 /* end shoping item  */
 /* end product content SubTota*/
+/* start CeckCart */
+.ceckcart-container {
+  display: flex;
+  justify-content: center;
+  text-transform: capitalize;
+}
+.ceckcart-container section {
+  width: 100%;
+  max-width: 400px;
+}
 
+.ceckcart-container section article {
+  padding: 40px;
+  border: 1px solid var(--clr-grey-7);
+  border-radius: 5px;
+  color: var(--clr-grey-2);
+  letter-spacing: var(--spacing);
+}
+.ceckcart-container section article h5,
+h2 {
+  margin-top: 0px;
+  margin-bottom: 0;
+}
+.ceckcart-container section article div:nth-child(2) {
+  border-bottom: 1px solid var(--clr-grey-5);
+  color: var(--clr-grey-6);
+  margin: 20px 0px;
+  padding-bottom: 20px;
+}
+.ceckcart-container section article span {
+  float: right;
+}
+.ceckcart-container section button {
+  padding: 5px;
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  color: var(--clr-grey-9);
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--clr-grey-1);
+  width: 100%;
+  margin-top: 20px;
+  font-weight: bolder;
+  transition: var(--transition);
+}
+.ceckcart-container section button:hover {
+  background-color: var(--clr-grey-9);
+  color: var(--clr-grey-1);
+}
+
+/* end Check cart */
 /*end products*/
 /* 'sm': '640px', */
 @media (min-width: 640px) {
@@ -754,8 +817,17 @@ button {
   .shop-item-container {
     grid-template-columns: 3fr 1fr 1fr 1fr;
   }
+  .ceckcart-container {
+    justify-content: flex-end;
+  }
 }
 
+.continue-clear button:nth-child(1) {
+  background-color: var(--clr-primary-4);
+}
+.continue-clear button:nth-child(2) {
+  background-color: var(--clr-black);
+}
 /* 'md': '768px', */
 @media (min-width: 768px) {
   .container {
