@@ -5,6 +5,7 @@ import About from './pages/About';
 import NavSideBar from './components/NavSideBar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './pages/Cart';
+import Product from './pages/Product';
 function App() {
   return (
     <div>
@@ -14,6 +15,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="products" element={<Products />} />
+            <Route path="products/:id" element={<Product />} />
             <Route path="cart" element={<Cart />} />
           </Route>
         </Routes>
