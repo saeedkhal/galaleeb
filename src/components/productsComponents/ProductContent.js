@@ -55,7 +55,7 @@ function ProductContent(props) {
             </div>
           </article>
         </Link>
-        <Link>
+        <Link to="/products/55">
           <article>
             <div className="feature-img-container">
               <img
@@ -72,7 +72,7 @@ function ProductContent(props) {
             </div>
           </article>{' '}
         </Link>
-        <Link>
+        <Link to="/products/55">
           <article>
             <div className="feature-img-container">
               <img

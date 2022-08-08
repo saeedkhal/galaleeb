@@ -803,9 +803,12 @@ h2 {
   background-color: var(--clr-grey-9);
   color: var(--clr-grey-1);
 }
-
 /* end Check cart */
 /*end products*/
+/* start productItem */
+.product-container {
+}
+/* end productItem */
 /* 'sm': '640px', */
 @media (min-width: 640px) {
   .container-filter {

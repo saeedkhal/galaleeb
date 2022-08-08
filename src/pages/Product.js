@@ -1,11 +1,11 @@
 import React from 'react';
-import RoutePath from '../components/RoutePath';
+import RoutePath from '../components/sharedCompnents/RoutePath';
+import ProductItem from '../components/productItemComponents/ProductItem';
 function Product(props) {
   return (
     <main>
-      <RoutePath />
-      <section className="productImg">this is img section</section>
-      <section className="product section"></section>
+      <RoutePath productName="ProductName" />
+      <ProductItem />
     </main>
   );
 }

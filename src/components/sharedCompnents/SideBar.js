@@ -1,14 +1,13 @@
 import React from 'react';
 import { CgClose } from 'react-icons/cg';
-import logo from '../assets/images/logo.svg';
+import logo from '../../assets/images/logo.svg';
 import { BsCartFill, BsFillPersonPlusFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsSidebarOpen } from '../features/globalSlice';
+import { setIsSidebarOpen } from '../../features/globalSlice';
 import { Link } from 'react-router-dom';
 function SideBar() {
   const dispatch = useDispatch();
   const isSidebarOpen = useSelector((state) => state.global.isSidebarOpen);
-  console.log(isSidebarOpen);
   return (
     <main className={isSidebarOpen ? 'sidebar oprnsidebare' : 'sidebar'}>
       <div className="sidebar-container">

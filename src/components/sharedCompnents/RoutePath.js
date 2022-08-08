@@ -1,14 +1,18 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-function RoutePath(props) {
+function RoutePath({ productName }) {
   const location = useLocation();
   const str = location.pathname.substring(1);
-
+  console.log(productName);
   return (
     <main className="route-path-container container">
       <h2>
         <span>Home</span>
-        <span> / {str}</span>
+        {productName ? (
+          <span>/ {productName && `Products / ${productName}`}</span>
+        ) : (
+          <span> / {str} </span>
+        )}
       </h2>
     </main>
   );

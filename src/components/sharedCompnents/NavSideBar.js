@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbare from './Navbare';
-import SideBar from './SideBar';
+import SideBar from '../sharedCompnents/SideBar';
 function NavSideBar(props) {
   return (
     <div>

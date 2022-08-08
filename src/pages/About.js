@@ -1,5 +1,5 @@
 import React from 'react';
-import RoutePath from '../components/RoutePath';
+import RoutePath from '../components/sharedCompnents/RoutePath';
 import AboutSecond from '../components/aboutCompnents/AboutSecond';
 import Footer from '../components/homeComponents/HomeFooter';
 function About(props) {

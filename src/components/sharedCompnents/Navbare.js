@@ -1,9 +1,9 @@
 import React from 'react';
-import logo from '../assets/images/logo.svg';
+import logo from '../../assets/images/logo.svg';
 import { GoThreeBars } from 'react-icons/go';
 import { BsCartFill, BsFillPersonPlusFill } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
-import { setIsSidebarOpen } from '../features/globalSlice';
+import { setIsSidebarOpen } from '../../features/globalSlice';
 import { Link } from 'react-router-dom';
 function Navbare(props) {
   const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import './App.css';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import About from './pages/About';
-import NavSideBar from './components/NavSideBar';
+import NavSideBar from './components/sharedCompnents/NavSideBar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './pages/Cart';
 import Product from './pages/Product';
