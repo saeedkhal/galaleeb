@@ -2,6 +2,7 @@ import React from 'react';
 import { ImStarHalf, ImStarFull } from 'react-icons/im';
 import { TiPlus, TiMinus } from 'react-icons/ti';
 import { IoMdArrowRoundBack, IoMdAddCircleOutline } from 'react-icons/io';
+import img from '../../assets/images/img2.jpeg';
 function ProductImgs(props) {
   return (
     <main className="container">
@@ -12,34 +13,14 @@ function ProductImgs(props) {
             <IoMdArrowRoundBack />
             Back to products
           </button>
-          <img
-            src="https://dl.airtable.com/.attachments/962b224f18f543f0c4d38e6d9d162792/87a222b8/z-extra-1.jpeg?ts=1659940159&userId=usrQMwWEPx18KgLcP&cs=c5a1734ecd1e2e53"
-            alt="neshar"
-            className="main-img"
-          />
+          <img src={img} alt="neshar" className="main-img" />
           <div className="imgesitem-container">
+            <img src={img} alt="neshar" className="img-item" />
+            <img src={img} alt="neshar" className="img-item" />{' '}
+            <img src={img} alt="neshar" className="img-item" />{' '}
+            <img src={img} alt="neshar" className="img-item" />
             <img
-              src="https://dl.airtable.com/.attachments/962b224f18f543f0c4d38e6d9d162792/87a222b8/z-extra-1.jpeg?ts=1659940159&userId=usrQMwWEPx18KgLcP&cs=c5a1734ecd1e2e53"
-              alt="neshar"
-              className="img-item"
-            />
-            <img
-              src="https://dl.airtable.com/.attachments/962b224f18f543f0c4d38e6d9d162792/87a222b8/z-extra-1.jpeg?ts=1659940159&userId=usrQMwWEPx18KgLcP&cs=c5a1734ecd1e2e53"
-              alt="neshar"
-              className="img-item"
-            />{' '}
-            <img
-              src="https://dl.airtable.com/.attachments/962b224f18f543f0c4d38e6d9d162792/87a222b8/z-extra-1.jpeg?ts=1659940159&userId=usrQMwWEPx18KgLcP&cs=c5a1734ecd1e2e53"
-              alt="neshar"
-              className="img-item"
-            />{' '}
-            <img
-              src="https://dl.airtable.com/.attachments/962b224f18f543f0c4d38e6d9d162792/87a222b8/z-extra-1.jpeg?ts=1659940159&userId=usrQMwWEPx18KgLcP&cs=c5a1734ecd1e2e53"
-              alt="neshar"
-              className="img-item"
-            />
-            <img
-              src="https://dl.airtable.com/.attachments/962b224f18f543f0c4d38e6d9d162792/87a222b8/z-extra-1.jpeg?ts=1659940159&userId=usrQMwWEPx18KgLcP&cs=c5a1734ecd1e2e53"
+              src={img}
               alt="neshar"
               className="img-item active-product-item"
             />
