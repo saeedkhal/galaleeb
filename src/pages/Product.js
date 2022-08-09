@@ -1,11 +1,13 @@
 import React from 'react';
 import RoutePath from '../components/sharedCompnents/RoutePath';
-import ProductItem from '../components/productItemComponents/ProductItem';
+import ProductImgs from '../components/productItemComponents/ProductImgs';
+import Footer from '../components/sharedCompnents/Footer';
 function Product(props) {
   return (
     <main>
       <RoutePath productName="ProductName" />
-      <ProductItem />
+      <ProductImgs />
+      <Footer />
     </main>
   );
 }
