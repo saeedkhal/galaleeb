@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 function RoutePath({ productName }) {
   const location = useLocation();
   const str = location.pathname.substring(1);
-  console.log(productName);
   return (
     <main className="route-path-container container">
       <h2>

@@ -2,11 +2,8 @@ import React from 'react';
 import logo from '../../assets/images/logo.svg';
 import { GoThreeBars } from 'react-icons/go';
 import { BsCartFill, BsFillPersonPlusFill } from 'react-icons/bs';
-import { useDispatch } from 'react-redux';
-import { setIsSidebarOpen } from '../../features/globalSlice';
 import { Link } from 'react-router-dom';
 function Navbare(props) {
-  const dispatch = useDispatch();
   return (
     <main className="nav-container ">
       <section className="nav-bar container">
@@ -35,10 +32,7 @@ function Navbare(props) {
             </a>{' '}
           </article>
         </div>
-        <GoThreeBars
-          className="bars-icon"
-          onClick={() => dispatch(setIsSidebarOpen(true))}
-        />
+        <GoThreeBars className="bars-icon" />
       </section>
     </main>
   );
