@@ -296,7 +296,7 @@ button {
   display: none;
 }
 .shop-img .img1 {
-  height: 530px;
+  height: 600px;
   width: 400px;
   object-fit: cover;
   border-radius: 5px;
@@ -339,6 +339,7 @@ button {
 }
 .feature-img-container {
   position: relative;
+  height: 550px;
 }
 .feature-img-container:hover > .search {
   opacity: 1;
@@ -349,7 +350,7 @@ button {
   top: 0px;
   background-color: rgba(0, 0, 0, 0.3);
   width: 100%;
-  height: 98%;
+  height: 100%;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -365,10 +366,10 @@ button {
   font-size: 1.25rem;
 }
 .feature-content img {
-  width: 100%;
   object-fit: cover;
-  height: 200px;
   border-radius: 5px;
+  height: 100%;
+  width: 100%;
 }
 .product-info {
   text-transform: capitalize;

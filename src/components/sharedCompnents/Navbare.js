@@ -3,7 +3,10 @@ import logo from '../../assets/images/logo.svg';
 import { GoThreeBars } from 'react-icons/go';
 import { BsCartFill, BsFillPersonPlusFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { AppContext } from '../../context/context';
+import { useContext } from 'react';
 function Navbare(props) {
+  const { OpenSidebar } = useContext(AppContext);
   return (
     <main className="nav-container ">
       <section className="nav-bar container">
@@ -32,7 +35,7 @@ function Navbare(props) {
             </a>{' '}
           </article>
         </div>
-        <GoThreeBars className="bars-icon" />
+        <GoThreeBars className="bars-icon" onClick={() => OpenSidebar()} />
       </section>
     </main>
   );

@@ -4,9 +4,7 @@ import HomeFirst from '../components/homeComponents/HomeFirst';
 import HomeThird from '../components/homeComponents/HomeThird';
 import HomeForth from '../components/homeComponents/HomeForth';
 import Footer from '../components/sharedCompnents/Footer';
-import { GlobalStore } from '../context/context';
 function Home(props) {
-  console.log(GlobalStore());
   return (
     <main>
       <HomeFirst />
