@@ -12,7 +12,6 @@ const reducer = (state, action) => {
     case CLOSE_SIDE_BAR:
       return { ...state, isSidebarOpen: false };
     case UPDATE_PRODUCTS:
-      console.log(UPDATE_PRODUCTS);
       return {
         ...state,
         products: action.payload,
