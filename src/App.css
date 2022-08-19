@@ -98,6 +98,14 @@ button {
   padding-top: 10px !important;
   padding-bottom: 10px !important;
 }
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+.logo-container span {
+  font-weight: 900;
+  color: var(--clr-grey-1);
+}
 .nav-bar li:not(:nth-child(1)) {
   margin-left: 20px;
 }
@@ -121,9 +129,7 @@ button {
   display: none;
 }
 .logo {
-  width: 160px;
   height: 60px;
-  margin-left: -15px;
 }
 .cart-login article {
   font-size: 1.5em;

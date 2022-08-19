@@ -5,6 +5,7 @@ import {
   BsFillCheckCircleFill,
   BsFillCircleFill,
 } from 'react-icons/bs';
+import ReactImageMagnify from 'react-image-magnify';
 import { FaCheckCircle } from 'react-icons/fa';
 import { TiPlus, TiMinus } from 'react-icons/ti';
 import { IoMdArrowRoundBack, IoMdAddCircleOutline } from 'react-icons/io';
@@ -49,11 +50,28 @@ function ProductImgs(props) {
             <IoMdArrowRoundBack />
             Back to products
           </button>
-          <img
-            src={product.fields.attachments[activeIndex].url}
-            alt="neshar"
-            className="main-img"
+          <ReactImageMagnify
+            {...{
+              smallImage: {
+                alt: 'Wristwatch by Ted Baker London',
+                isFluidWidth: true,
+                src: product.fields.attachments[activeIndex].url,
+              },
+              largeImage: {
+                src: product.fields.attachments[activeIndex].url,
+                width: 500,
+                height: 400,
+              },
+              imageStyle: {
+                borderRadius: '5px',
+                marginBottom: '15px',
+                maxHeight: '500px',
+                maxWidth: '400px',
+                margin: 'auto',
+              },
+            }}
           />
+
           <div className="imgesitem-container">
             {product.fields.attachments.map((img, index) => {
               return (

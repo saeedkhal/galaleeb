@@ -1,16 +1,22 @@
 import React from 'react';
-import logo from '../../assets/images/logo.svg';
+// import logo from '../../assets/images/logo.svg';
 import { GoThreeBars } from 'react-icons/go';
 import { BsCartFill, BsFillPersonPlusFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../context/context';
 import { useContext } from 'react';
+import logo from '../../assets/images/logo_fill.svg';
 function Navbare(props) {
   const { OpenSidebar } = useContext(AppContext);
   return (
     <main className="nav-container ">
       <section className="nav-bar container">
-        <img src={logo} alt="logo" className="logo" />
+        <articel className="logo-container">
+          <span>GALALEEB</span>
+          <img src={logo} alt="logo" className="logo" />
+          <span>STORE</span>
+        </articel>
+
         <ul className="navbar-routs">
           <li>
             <Link to="/">Home</Link>
