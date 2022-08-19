@@ -10,3 +10,10 @@ export const getFeatured = (arr, filteredProp) => {
   }
   return filteredProducts;
 };
+
+export const getProductById = (arr, id) => {
+  const product = arr.filter((el) => {
+    return (el.id = id);
+  });
+  return product;
+};

@@ -1,29 +1,69 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ImStarHalf, ImStarFull } from 'react-icons/im';
 import { TiPlus, TiMinus } from 'react-icons/ti';
 import { IoMdArrowRoundBack, IoMdAddCircleOutline } from 'react-icons/io';
 import img from '../../assets/images/img2.jpeg';
+import { AppContext } from '../../context/context';
+import { getProductById } from '../../utils/getFeatured';
+import { useParams, useNavigate } from 'react-router-dom';
+import Loading from '../sharedCompnents/Loading';
+import axios from 'axios';
 function ProductImgs(props) {
+  const nagigate = useNavigate();
+  const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState([]);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const handelActive = (index) => {
+    setActiveIndex(index);
+  };
+  const { id } = useParams();
+  const getSingleProduct = async () => {
+    setLoading(true);
+    const res = await axios.get(`/Products/${id}`);
+    setProduct(res.data);
+    setLoading(false);
+  };
+  useEffect(() => {
+    getSingleProduct();
+  }, []);
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <main className="container">
       <section className="product-container">
         <article className="product-img">
-          <button className="backto-product">
+          <button
+            className="backto-product"
+            onClick={() => {
+              nagigate('/products');
+            }}
+          >
             {' '}
             <IoMdArrowRoundBack />
             Back to products
           </button>
-          <img src={img} alt="neshar" className="main-img" />
+          <img
+            src={product.fields.attachments[activeIndex].url}
+            alt="neshar"
+            className="main-img"
+          />
           <div className="imgesitem-container">
-            <img src={img} alt="neshar" className="img-item" />
-            <img src={img} alt="neshar" className="img-item" />{' '}
-            <img src={img} alt="neshar" className="img-item" />{' '}
-            <img src={img} alt="neshar" className="img-item" />
-            <img
-              src={img}
-              alt="neshar"
-              className="img-item active-product-item"
-            />
+            {product.fields.attachments.map((img, index) => {
+              return (
+                <img
+                  src={img.url}
+                  alt="neshar"
+                  className={
+                    index === activeIndex
+                      ? 'img-item active-product-item'
+                      : 'img-item'
+                  }
+                  onClick={() => handelActive(index)}
+                />
+              );
+            })}
           </div>
         </article>
         <article className="product-article">

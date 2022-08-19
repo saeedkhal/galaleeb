@@ -15,10 +15,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         products: action.payload,
-        filteredProducts: action.payload,
-        featuredProduct: action.payload.filter((product) => {
-          return product.fields.featured === true;
-        }),
       };
     case UPDATE_ISLOADING:
       return { ...state, isLoading: action.payload };

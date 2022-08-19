@@ -28,9 +28,7 @@ const AppProvider = ({ children }) => {
   const getProducts = async () => {
     try {
       dispatch({ type: UPDATE_ISLOADING, payload: true });
-      const res = await axios.get(
-        'https://api.airtable.com/v0/appAS2roJGcDlQhwh/Products?api_key=keyZ4drcrVYtlksE4'
-      );
+      const res = await axios.get('/Products');
       dispatch({ type: UPDATE_PRODUCTS, payload: res.data.records });
       dispatch({ type: UPDATE_ISLOADING, payload: false });
     } catch (err) {
