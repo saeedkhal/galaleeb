@@ -287,21 +287,25 @@ button {
   width: 100px;
   height: 400px;
   position: absolute;
-  bottom: 0px;
+  bottom: 4px;
   background-color: var(--clr-primary-9);
   left: -50px;
+  display: none;
 }
 .shop-img {
   position: relative;
   display: none;
 }
 .shop-img .img1 {
-  height: 600px;
-  width: 400px;
+  width: 100%;
   object-fit: cover;
   border-radius: 5px;
   z-index: 0;
   position: relative;
+  box-shadow: aliceblue;
+  box-shadow: -26px 27px 57px 0px rgba(238, 149, 36, 0.78);
+  -webkit-box-shadow: -26px 27px 57px 0px rgba(238, 149, 36, 0.78);
+  -moz-box-shadow: -26px 27px 57px 0px rgba(238, 149, 36, 0.78);
 }
 .shop-img .img2 {
   height: 150px;
@@ -313,6 +317,7 @@ button {
   left: 0px;
   bottom: 0px;
   z-index: 1;
+  display: none;
 }
 /* end home first section */
 /* start home second section */
@@ -615,14 +620,14 @@ button {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  margin-left: 10px;
+  margin-left: 15px;
   line-height: 2px;
-  color: var(--clr-grey-10);
   cursor: pointer;
   text-align: center;
   padding: 1px;
-  opacity: 0.5;
+  font-size: 25px;
 }
+
 .All {
   all: unset;
   color: var(--clr-grey-6);
@@ -632,9 +637,6 @@ button {
 }
 .All-cative {
   border-bottom: 1px solid var(--clr-grey-6);
-}
-.color .active {
-  opacity: 1 !important;
 }
 .product-found {
   display: flex;
@@ -878,7 +880,7 @@ h2 {
   margin-left: 5px;
 }
 .imgesitem-container img:nth-of-type(1) {
-  margin-left: 0px;
+  margin-left: 5px;
 }
 .active-product-item {
   border: 2px solid var(--clr-primary-4);
@@ -923,6 +925,7 @@ h2 {
   padding-bottom: 50px;
   border-bottom: 1px solid var(--clr-grey-2);
   justify-content: start;
+  align-items: center;
 }
 
 .about-product div:nth-last-of-type(2n) {

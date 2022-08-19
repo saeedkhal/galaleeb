@@ -1,22 +1,27 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ImStarHalf, ImStarFull } from 'react-icons/im';
+import {
+  BsCheck,
+  BsFillCheckCircleFill,
+  BsFillCircleFill,
+} from 'react-icons/bs';
+import { FaCheckCircle } from 'react-icons/fa';
 import { TiPlus, TiMinus } from 'react-icons/ti';
 import { IoMdArrowRoundBack, IoMdAddCircleOutline } from 'react-icons/io';
-import img from '../../assets/images/img2.jpeg';
 import { AppContext } from '../../context/context';
 import { getProductById } from '../../utils/getFeatured';
 import { useParams, useNavigate } from 'react-router-dom';
+
 import Loading from '../sharedCompnents/Loading';
 import axios from 'axios';
 function ProductImgs(props) {
   const nagigate = useNavigate();
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState([]);
+  const [sizeIndex, setSizeIndex] = useState(0);
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const handelActive = (index) => {
-    setActiveIndex(index);
-  };
+  const handelActive = (index) => {};
   const { id } = useParams();
   const getSingleProduct = async () => {
     setLoading(true);
@@ -53,6 +58,7 @@ function ProductImgs(props) {
             {product.fields.attachments.map((img, index) => {
               return (
                 <img
+                  key={index}
                   src={img.url}
                   alt="neshar"
                   className={
@@ -60,48 +66,55 @@ function ProductImgs(props) {
                       ? 'img-item active-product-item'
                       : 'img-item'
                   }
-                  onClick={() => handelActive(index)}
+                  onClick={() => setActiveIndex(index)}
                 />
               );
             })}
           </div>
         </article>
         <article className="product-article">
-          <h1>leather chair </h1>
+          <h1>{product.fields.name[0]}</h1>
           <div className="starts-rate">
             <ImStarFull />
             <ImStarHalf />
             <ImStarHalf />
             <ImStarHalf />
-            <span>(17 customer reviews)</span>
+            <span>({product.fields.ratingNum} customer reviews)</span>
           </div>
-          <strong className="price">$ 200.99</strong>
-          <p className="decription">
-            Cloud bread VHS hell of banjo bicycle rights jianbing umami
-            mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher
-            waistcoat, authentic chillwave trust fund. Viral typewriter
-            fingerstache pinterest pork belly narwhal. Schlitz venmo everyday
-            carry kitsch pitchfork chillwave iPhone taiyaki trust fund hashtag
-            kinfolk microdosing gochujang live-edge
-          </p>
+          <strong className="price">$ {product.fields.price}</strong>
+          <p className="decription">{product.fields.desc[0]}</p>
           <div className="about-product">
             <div>Available : </div>
-            <div>In stock</div>
+            <div>{product.fields.available ? 'InStocke' : 'not Available'}</div>
             <div>Brand :</div>
-            <div>caressa</div>
+            <div>{product.fields.channel[0]}</div>
             <div>Size</div>
             <div className="sizes">
-              <span className="active">M</span>
-              <span>L</span>
-              <span>Xl</span>
-              <span>XXl</span>
+              {product.fields.sizes.map((size, index) => {
+                return (
+                  <span
+                    key={index}
+                    onClick={() => setSizeIndex(index)}
+                    className={sizeIndex === index ? 'active' : ''}
+                  >
+                    {size}
+                  </span>
+                );
+              })}
             </div>
             <div>Colors</div>
             <div className="color">
-              <button style={{ background: 'green' }}>&nbsp;</button>
-              <button className="active" style={{ background: 'red' }}>
-                ✔
-              </button>
+              {product.fields.colors.map((color, index) => {
+                return (
+                  <button key={index} onClick={() => setActiveIndex(index)}>
+                    {activeIndex === index ? (
+                      <FaCheckCircle style={{ color: color }} />
+                    ) : (
+                      <BsFillCircleFill style={{ color: color }} />
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
           <div className="increase-decrease">

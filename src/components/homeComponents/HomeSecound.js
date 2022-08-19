@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import { AppContext } from '../../context/context';
 import Loading from '../sharedCompnents/Loading';
 import defaultimg from '../../assets/images/defaluteimg.png';
+import { getFeatured } from '../../utils/getFeatured';
 function HomeSecound(props) {
   const { isLoading, products } = useContext(AppContext);
+  const featuredProducts = getFeatured(products, { featured: true });
   if (isLoading) {
     return <Loading />;
   }
@@ -15,7 +17,7 @@ function HomeSecound(props) {
       <h1 className="feature-header">featured products</h1>
       <div className="hr"></div>
       <section className="feature-content">
-        {products.map((product, index) => {
+        {featuredProducts.map((product, index) => {
           return (
             <Link key={index} to={`products/${product.id}`}>
               <article>
@@ -33,7 +35,7 @@ function HomeSecound(props) {
                   </div>
                 </div>
                 <div className="product-info">
-                  {product.fields.name_en}
+                  {product.fields.name[0]}
                   <span className="price">{product.fields.price}$</span>
                 </div>
               </article>
