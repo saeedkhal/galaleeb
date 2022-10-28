@@ -1,13 +1,13 @@
-import React, { createContext, useEffect, useReducer } from 'react';
-import reducer from '../reducer/reducer';
-import axios from 'axios';
+import React, { createContext, useContext, useEffect, useReducer } from "react";
+import reducer from "../reducer/reducer";
+import axios from "axios";
 import {
   OPEN_SIDE_BAR,
   CLOSE_SIDE_BAR,
   UPDATE_PRODUCTS,
   UPDATE_ISLOADING,
   UPDATE_ERR,
-} from '../assets/contsntants/constants';
+} from "../assets/contsntants/constants";
 
 export const AppContext = createContext();
 const initialState = {
@@ -28,7 +28,7 @@ const AppProvider = ({ children }) => {
   const getProducts = async () => {
     try {
       dispatch({ type: UPDATE_ISLOADING, payload: true });
-      const res = await axios.get('/Products');
+      const res = await axios.get("/Products");
       dispatch({ type: UPDATE_PRODUCTS, payload: res.data.records });
       dispatch({ type: UPDATE_ISLOADING, payload: false });
     } catch (err) {
@@ -39,10 +39,16 @@ const AppProvider = ({ children }) => {
     getProducts();
   }, []);
   return (
-    <AppContext.Provider value={{ ...state, OpenSidebar, CloseSideBar }}>
+    <AppContext.Provider
+      value={{ ...state, OpenSidebar, CloseSideBar, getProducts, dispatch }}
+    >
       {children}
     </AppContext.Provider>
   );
+};
+
+export const useContextProvider = () => {
+  return useContext(AppContext);
 };
 
 export default AppProvider;

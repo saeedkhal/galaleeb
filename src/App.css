@@ -35,22 +35,22 @@
 }
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .App {
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .App-logo {
@@ -350,7 +350,6 @@ button {
 }
 .feature-img-container {
   position: relative;
-  height: 550px;
 }
 .feature-img-container:hover > .search {
   opacity: 1;
@@ -377,7 +376,7 @@ button {
   font-size: 1.25rem;
 }
 .feature-content img {
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 5px;
   height: 100%;
   width: 100%;
@@ -388,6 +387,9 @@ button {
   margin-bottom: 30px;
   margin-top: 20px;
   letter-spacing: var(--spacing);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .product-info > span {
   float: right;
@@ -994,6 +996,9 @@ h2 {
   margin-left: 10px;
   font-size: large;
 }
+.shipping input {
+  cursor: pointer;
+}
 .sizes .active {
   border: 1px solid var(--clr-grey-4);
   font-weight: bold;
@@ -1164,7 +1169,7 @@ h2 {
   }
   .feature-content {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
   }
   .grid-4 {

@@ -4,7 +4,8 @@ import {
   OPEN_SIDE_BAR,
   UPDATE_ISLOADING,
   UPDATE_ERR,
-} from '../assets/contsntants/constants';
+  UPDATE_FILTERED_PRODUCTS,
+} from "../assets/contsntants/constants";
 const reducer = (state, action) => {
   switch (action.type) {
     case OPEN_SIDE_BAR:
@@ -15,11 +16,17 @@ const reducer = (state, action) => {
       return {
         ...state,
         products: action.payload,
+        filteredProducts: action.payload,
       };
     case UPDATE_ISLOADING:
       return { ...state, isLoading: action.payload };
     case UPDATE_ERR:
       return { ...state, err: true };
+    case UPDATE_FILTERED_PRODUCTS:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+      };
     default:
       return state;
   }
