@@ -1,18 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { useContextProvider } from "../../context/context";
 import { UPDATE_FILTERED_PRODUCTS } from "../../assets/contsntants/constants";
-function FilterProducts(props) {
+import {
+  RiCheckboxCircleFill,
+  RiCheckboxBlankCircleFill,
+} from "react-icons/ri";
+
+import { deltaE, hexToRgb } from "./utils";
+function FilterProducts() {
   const { dispatch, getProducts, products, channels, categoryies } =
     useContextProvider();
   const [filterObject, setFilterObject] = useState({
     category: "",
-    price: Math.max(...products.map((product) => product?.fields?.price)),
+    price: 150,
     color: "",
     freeShipping: false,
     searchName: "",
     channel: "",
   });
-
+  const btnColors = [
+    "#000000",
+    "#ff0000",
+    "#00ff00",
+    "#0000ff",
+    "#FFA500",
+    "#7ccded",
+  ];
   const filterProducts = () => {
     const newProducts = products
       ?.filter((product) => {
@@ -40,7 +53,29 @@ function FilterProducts(props) {
           return true;
         }
         return product?.fields?.chennel?.includes(filterObject?.channel);
+      })
+      .filter((product) => {
+        return product?.fields?.price <= filterObject?.price;
+      })
+      .map((product) => {
+        console.log("product");
+        console.log(product);
+        if (!filterObject?.color) {
+          return product;
+        } else {
+          const colorIndex = product?.fields?.colors?.findIndex((color) => {
+            return deltaE(hexToRgb(color), hexToRgb(filterObject?.color)) <= 20;
+          });
+          return {
+            ...product,
+            fields: { ...product?.fields, activeImg: colorIndex },
+          };
+        }
+      })
+      .filter((product) => {
+        return product?.fields?.activeImg !== -1;
       });
+
     dispatch({ type: UPDATE_FILTERED_PRODUCTS, payload: newProducts });
   };
   useEffect(() => {
@@ -112,24 +147,44 @@ function FilterProducts(props) {
           <div className="price-container">
             <input
               className="price-input"
+              max={Math.max(
+                ...products.map((product) => product?.fields?.price)
+              )}
               type="range"
               value={filterObject?.price}
               onChange={(e) =>
                 setFilterObject({ ...filterObject, price: e.target.value })
               }
             />
-            <span className="price-output">{filterObject?.price}</span>
+            <span className="price-output">{filterObject?.price}$</span>
           </div>
         </section>
         <section className="color">
           <h3 className="header-filter">Color</h3>
-          <button className="All">All</button>
-          <button style={{ background: "black" }} className="active">
-            ✔
+          <button
+            className="All"
+            style={!filterObject?.color ? { borderBottom: "1px solid" } : {}}
+            onClick={() => setFilterObject({ ...filterObject, color: "" })}
+          >
+            All
           </button>
-          <button style={{ background: "red" }}>&#160;</button>
-          <button style={{ background: "green" }}>&#160;</button>
-          <button style={{ background: "blue" }}>&#160;</button>
+          {btnColors?.map((color, index) => {
+            return (
+              <button
+                key={index}
+                onClick={() => setFilterObject({ ...filterObject, color })}
+              >
+                {filterObject?.color === color ? (
+                  <RiCheckboxCircleFill style={{ color }} />
+                ) : (
+                  <RiCheckboxBlankCircleFill
+                    className="active"
+                    style={{ color }}
+                  />
+                )}
+              </button>
+            );
+          })}
         </section>
         <section className="shipping">
           <h3 className="header-filter">Free Shipping</h3>

@@ -630,15 +630,13 @@ button {
 }
 .color button:not(.All) {
   all: unset;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  margin-left: 15px;
+  margin-left: 5px;
   line-height: 2px;
   cursor: pointer;
   text-align: center;
-  padding: 1px;
-  font-size: 25px;
+}
+.color button svg {
+  font-size: 20px;
 }
 
 .All {
