@@ -11,11 +11,13 @@ function Navbare() {
   return (
     <main className="nav-container ">
       <section className="nav-bar container">
-        <article className="logo-container">
-          <span>GALALEEB</span>
-          <img src={logo} alt="logo" className="logo" />
-          <span>STORE</span>
-        </article>
+        <Link to="/">
+          <article className="logo-container">
+            <span>GALALEEB</span>
+            <img src={logo} alt="logo" className="logo" />
+            <span>STORE</span>
+          </article>
+        </Link>
 
         <ul className="navbar-routs">
           <li>

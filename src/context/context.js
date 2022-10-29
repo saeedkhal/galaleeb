@@ -7,6 +7,8 @@ import {
   UPDATE_PRODUCTS,
   UPDATE_ISLOADING,
   UPDATE_ERR,
+  UPDATE_CHANNELS,
+  UPDATE_CATEGORIES,
 } from "../assets/contsntants/constants";
 
 export const AppContext = createContext();
@@ -16,6 +18,8 @@ const initialState = {
   featuredProduct: [],
   isLoading: true,
   filteredProducts: [],
+  channels: [],
+  categoryies: [],
 };
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -35,8 +39,30 @@ const AppProvider = ({ children }) => {
       dispatch({ type: UPDATE_ERR, payload: true });
     }
   };
+  const getChannels = async () => {
+    try {
+      dispatch({ type: UPDATE_ISLOADING, payload: true });
+      const res = await axios.get("/Channels");
+      dispatch({ type: UPDATE_CHANNELS, payload: res.data.records });
+      dispatch({ type: UPDATE_ISLOADING, payload: false });
+    } catch (err) {
+      dispatch({ type: UPDATE_ERR, payload: true });
+    }
+  };
+  const getcategoryies = async () => {
+    try {
+      dispatch({ type: UPDATE_ISLOADING, payload: true });
+      const res = await axios.get("/Category");
+      dispatch({ type: UPDATE_CATEGORIES, payload: res.data.records });
+      dispatch({ type: UPDATE_ISLOADING, payload: false });
+    } catch (err) {
+      dispatch({ type: UPDATE_ERR, payload: true });
+    }
+  };
   useEffect(() => {
     getProducts();
+    getChannels();
+    getcategoryies();
   }, []);
   return (
     <AppContext.Provider

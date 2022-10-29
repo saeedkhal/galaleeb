@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useContextProvider } from "../../context/context";
 import { UPDATE_FILTERED_PRODUCTS } from "../../assets/contsntants/constants";
 function FilterProducts(props) {
-  const { dispatch, getProducts, products } = useContextProvider();
-  const [filterObject, SetFilterObject] = useState({
-    category: null, //0 - winter 1- summer
+  const { dispatch, getProducts, products, channels, categoryies } =
+    useContextProvider();
+  const [filterObject, setFilterObject] = useState({
+    category: [],
     price: "",
     color: "",
     freeShipping: false,
     channel: "",
   });
   const filterProducts = () => {
-    console.log("products");
-    console.log(products);
-
     const newProducts = products?.filter((product) => {
-      return product?.fields?.category[2] * 1 === filterObject?.category * 1;
+      return filterObject?.category.includes(
+        product?.fields?.category.toString()
+      );
     });
     dispatch({ type: UPDATE_FILTERED_PRODUCTS, payload: newProducts });
   };
@@ -25,33 +25,43 @@ function FilterProducts(props) {
   }, [filterObject]);
   useEffect(() => {
     getProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <main className="container fiterproduct-contaoner">
       <div className="container-filter">
         <section className="cateogry">
           <h3 className="header-filter">Cateogry</h3>
+          {categoryies?.map((category, index) => {
+            const { id, fields } = category;
+            return (
+              <button
+                key={index}
+                className={
+                  id === filterObject?.category.toString()
+                    ? "cateory-active"
+                    : ""
+                }
+                onClick={() => {
+                  setFilterObject({ ...filterObject, category: [id] });
+                }}
+              >
+                {fields?.name}
+              </button>
+            );
+          })}
           <button
-            className="cateory-active"
+            className={
+              filterObject?.category?.length === 2 ? "cateory-active" : ""
+            }
             onClick={() => {
-              SetFilterObject({ ...filterObject, category: null });
+              setFilterObject({
+                ...filterObject,
+                category: categoryies?.map((category) => category?.id),
+              });
             }}
           >
-            All
-          </button>
-          <button
-            onClick={() => {
-              SetFilterObject({ ...filterObject, category: 0 });
-            }}
-          >
-            Winter
-          </button>
-          <button
-            onClick={() => {
-              SetFilterObject({ ...filterObject, category: 1 });
-            }}
-          >
-            Summer
+            ALL
           </button>
         </section>
         <section className="channel">

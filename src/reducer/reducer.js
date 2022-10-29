@@ -5,6 +5,8 @@ import {
   UPDATE_ISLOADING,
   UPDATE_ERR,
   UPDATE_FILTERED_PRODUCTS,
+  UPDATE_CHANNELS,
+  UPDATE_CATEGORIES,
 } from "../assets/contsntants/constants";
 const reducer = (state, action) => {
   switch (action.type) {
@@ -26,6 +28,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         filteredProducts: action.payload,
+      };
+    case UPDATE_CHANNELS:
+      return {
+        ...state,
+        channels: action.payload,
+      };
+    case UPDATE_CATEGORIES:
+      return {
+        ...state,
+        categoryies: action.payload,
       };
     default:
       return state;
