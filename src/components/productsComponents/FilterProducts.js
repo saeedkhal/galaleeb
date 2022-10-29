@@ -5,18 +5,42 @@ function FilterProducts(props) {
   const { dispatch, getProducts, products, channels, categoryies } =
     useContextProvider();
   const [filterObject, setFilterObject] = useState({
-    category: [],
+    category: "",
     price: "",
     color: "",
     freeShipping: false,
+    searchName: "",
     channel: "",
   });
   const filterProducts = () => {
-    const newProducts = products?.filter((product) => {
-      return filterObject?.category.includes(
-        product?.fields?.category.toString()
-      );
-    });
+    const newProducts = products
+      ?.filter((product) => {
+        if (!filterObject?.category) {
+          return true;
+        }
+        return filterObject?.category === product?.fields?.category.toString();
+      })
+      .filter((product) => {
+        if (!filterObject?.freeShipping) {
+          return true;
+        }
+        return product?.fields?.freeShipping === filterObject?.freeShipping;
+      })
+      .filter((product) => {
+        if (!filterObject?.searchName) {
+          return true;
+        }
+        return product?.fields?.name
+          .toLowerCase()
+          .includes(filterObject?.searchName?.toLowerCase());
+      })
+      .filter((product) => {
+        if (!filterObject?.channel) {
+          return true;
+        }
+        console.log(product?.fields?.chennel);
+        return product?.fields?.chennel?.includes(filterObject?.channel);
+      });
     dispatch({ type: UPDATE_FILTERED_PRODUCTS, payload: newProducts });
   };
   useEffect(() => {
@@ -43,7 +67,7 @@ function FilterProducts(props) {
                     : ""
                 }
                 onClick={() => {
-                  setFilterObject({ ...filterObject, category: [id] });
+                  setFilterObject({ ...filterObject, category: id });
                 }}
               >
                 {fields?.name}
@@ -51,13 +75,11 @@ function FilterProducts(props) {
             );
           })}
           <button
-            className={
-              filterObject?.category?.length === 2 ? "cateory-active" : ""
-            }
+            className={!filterObject?.category ? "cateory-active" : ""}
             onClick={() => {
               setFilterObject({
                 ...filterObject,
-                category: categoryies?.map((category) => category?.id),
+                category: "",
               });
             }}
           >
@@ -66,16 +88,29 @@ function FilterProducts(props) {
         </section>
         <section className="channel">
           <h3 className="header-filter">Channel</h3>
-          <select>
-            <option value="channel1">All</option>
-            <option value="channel1">Channne1</option>
-            <option value="channel1">Channne2</option>
+          <select
+            onChange={(e) => {
+              setFilterObject({
+                ...filterObject,
+                channel: e.target.value,
+              });
+            }}
+          >
+            <option value="">ALL</option>
+            {channels?.map((channel, index) => {
+              const { id, fields } = channel;
+              return (
+                <option key={index} value={id}>
+                  {fields?.name}
+                </option>
+              );
+            })}
           </select>
         </section>
         <section className="price">
           <h3 className="header-filter">Price</h3>
           <div className="price-container">
-            <input className="price-input" type="range" min="0" max="100" />{" "}
+            <input className="price-input" type="range" min="0" max="3000" />{" "}
             <span className="price-output">300$</span>
           </div>
         </section>
@@ -90,8 +125,17 @@ function FilterProducts(props) {
           <button style={{ background: "blue" }}>&#160;</button>
         </section>
         <section className="shipping">
-          <h3 className="header-filter">Free Shipping </h3>
-          <input type="checkbox" />
+          <h3 className="header-filter">Free Shipping</h3>
+          <input
+            type="checkbox"
+            checked={filterObject?.freeShipping}
+            onChange={() => {
+              setFilterObject({
+                ...filterObject,
+                freeShipping: !filterObject?.freeShipping,
+              });
+            }}
+          />
         </section>
       </div>
       <section className="product-found">
@@ -109,7 +153,16 @@ function FilterProducts(props) {
           </select>
         </span>
       </section>
-      <input placeholder="Search" className="search-products" />
+      <input
+        placeholder="Search"
+        className="search-products"
+        onChange={(e) => {
+          setFilterObject({
+            ...filterObject,
+            searchName: e.target.value,
+          });
+        }}
+      />
     </main>
   );
 }

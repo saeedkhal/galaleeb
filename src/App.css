@@ -998,6 +998,8 @@ h2 {
 }
 .shipping input {
   cursor: pointer;
+  width: 18px;
+  height: 18px;
 }
 .sizes .active {
   border: 1px solid var(--clr-grey-4);
