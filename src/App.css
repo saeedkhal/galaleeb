@@ -347,6 +347,8 @@ button {
 }
 .feature-content article {
   margin-top: 20px;
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 .feature-img-container {
   position: relative;
@@ -389,11 +391,14 @@ button {
   letter-spacing: var(--spacing);
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
 }
 .product-info > span {
   float: right;
   color: var(--clr-primary-6);
+}
+.product-info p {
+  margin: 0px;
 }
 .all-products {
   display: block;

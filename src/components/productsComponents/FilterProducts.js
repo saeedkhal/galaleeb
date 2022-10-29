@@ -6,12 +6,13 @@ function FilterProducts(props) {
     useContextProvider();
   const [filterObject, setFilterObject] = useState({
     category: "",
-    price: "",
+    price: Math.max(...products.map((product) => product?.fields?.price)),
     color: "",
     freeShipping: false,
     searchName: "",
     channel: "",
   });
+
   const filterProducts = () => {
     const newProducts = products
       ?.filter((product) => {
@@ -38,7 +39,6 @@ function FilterProducts(props) {
         if (!filterObject?.channel) {
           return true;
         }
-        console.log(product?.fields?.chennel);
         return product?.fields?.chennel?.includes(filterObject?.channel);
       });
     dispatch({ type: UPDATE_FILTERED_PRODUCTS, payload: newProducts });
@@ -110,8 +110,15 @@ function FilterProducts(props) {
         <section className="price">
           <h3 className="header-filter">Price</h3>
           <div className="price-container">
-            <input className="price-input" type="range" min="0" max="3000" />{" "}
-            <span className="price-output">300$</span>
+            <input
+              className="price-input"
+              type="range"
+              value={filterObject?.price}
+              onChange={(e) =>
+                setFilterObject({ ...filterObject, price: e.target.value })
+              }
+            />
+            <span className="price-output">{filterObject?.price}</span>
           </div>
         </section>
         <section className="color">

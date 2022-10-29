@@ -1,11 +1,11 @@
-import React from 'react';
-import { useContext } from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
-import { AppContext } from '../../context/context';
-import Loading from '../sharedCompnents/Loading';
-import defaultimg from '../../assets/images/defaluteimg.png';
-import { getFeatured } from '../../utils/getFeatured';
+import React from "react";
+import { useContext } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { AppContext } from "../../context/context";
+import Loading from "../sharedCompnents/Loading";
+import defaultimg from "../../assets/images/defaluteimg.png";
+import { getFeatured } from "../../utils/getFeatured";
 function HomeSecound(props) {
   const { isLoading, products } = useContext(AppContext);
   const featuredProducts = getFeatured(products, { featured: true });
@@ -35,7 +35,7 @@ function HomeSecound(props) {
                   </div>
                 </div>
                 <div className="product-info">
-                  {product.fields.name[0]}
+                  {product.fields.name}
                   <span className="price">{product.fields.price}$</span>
                 </div>
               </article>
