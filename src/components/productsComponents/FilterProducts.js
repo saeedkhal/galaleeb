@@ -7,6 +7,7 @@ import {
 } from "react-icons/ri";
 
 import { deltaE, hexToRgb } from "./utils";
+import sortType from "../../assets/contsntants/constantArr";
 function FilterProducts() {
   const { dispatch, getProducts, products, channels, categoryies } =
     useContextProvider();
@@ -17,6 +18,7 @@ function FilterProducts() {
     freeShipping: false,
     searchName: "",
     channel: "",
+    sortTypeId: "",
   });
   const btnColors = [
     "#000000",
@@ -26,7 +28,6 @@ function FilterProducts() {
     "#FFA500",
     "#7ccded",
     "#c8c8c8",
-
   ];
   const filterProducts = () => {
     const newProducts = products
@@ -63,7 +64,7 @@ function FilterProducts() {
         if (!filterObject?.color) {
           return product;
         } else {
-          const colorIndex = product?.fields?.colors?.findIndex((color,i) => {
+          const colorIndex = product?.fields?.colors?.findIndex((color, i) => {
             return deltaE(hexToRgb(color), hexToRgb(filterObject?.color)) <= 20;
           });
           return {
@@ -75,7 +76,43 @@ function FilterProducts() {
       .filter((product) => {
         return product?.fields?.activeImg !== -1;
       });
-
+    switch (filterObject?.sortTypeId) {
+      case "0":
+        console.log("0");
+        newProducts.sort((a, b) => a?.fields?.price - b?.fields?.price);
+        break;
+      case "1":
+        newProducts.sort((a, b) => b?.fields?.price - a?.fields?.price);
+        break;
+      case "2":
+        newProducts.sort(function (a, b) {
+          let x = a?.fields?.name.toLowerCase();
+          let y = b?.fields?.name.toLowerCase();
+          if (x > y) {
+            return -1;
+          }
+          if (x < y) {
+            return 1;
+          }
+          return 0;
+        });
+        break;
+      case "3":
+        newProducts.sort(function (a, b) {
+          let x = a?.fields?.name.toLowerCase();
+          let y = b?.fields?.name.toLowerCase();
+          if (x < y) {
+            return -1;
+          }
+          if (x > y) {
+            return 1;
+          }
+          return 0;
+        });
+        break;
+      default:
+        return;
+    }
     dispatch({ type: UPDATE_FILTERED_PRODUCTS, payload: newProducts });
   };
   useEffect(() => {
@@ -207,11 +244,18 @@ function FilterProducts() {
         </div>
         <span>
           sorted by
-          <select>
-            <option value="min-pirce">min-price</option>
-            <option value="max-pirce">max-price</option>
-            <option value="name">name asce</option>
-            <option value="name">name desc</option>
+          <select
+            onChange={(e) =>
+              setFilterObject({ ...filterObject, sortTypeId: e.target.value })
+            }
+          >
+            {sortType?.map((opt, index) => {
+              return (
+                <option key={index} value={opt?.id}>
+                  {opt?.name}
+                </option>
+              );
+            })}
           </select>
         </span>
       </section>
