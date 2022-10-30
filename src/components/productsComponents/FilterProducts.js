@@ -20,11 +20,13 @@ function FilterProducts() {
   });
   const btnColors = [
     "#000000",
-    "#ff0000",
-    "#00ff00",
-    "#0000ff",
+    "#c80000",
+    "#9EB296",
+    "#183F7A",
     "#FFA500",
     "#7ccded",
+    "#c8c8c8",
+
   ];
   const filterProducts = () => {
     const newProducts = products
@@ -58,12 +60,10 @@ function FilterProducts() {
         return product?.fields?.price <= filterObject?.price;
       })
       .map((product) => {
-        console.log("product");
-        console.log(product);
         if (!filterObject?.color) {
           return product;
         } else {
-          const colorIndex = product?.fields?.colors?.findIndex((color) => {
+          const colorIndex = product?.fields?.colors?.findIndex((color,i) => {
             return deltaE(hexToRgb(color), hexToRgb(filterObject?.color)) <= 20;
           });
           return {

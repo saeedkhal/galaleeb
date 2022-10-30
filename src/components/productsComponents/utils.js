@@ -16,8 +16,6 @@ export function deltaE(rgbA, rgbB) {
   let deltaHkhsh = deltaH / sh;
   let i =
     deltaLKlsl * deltaLKlsl + deltaCkcsc * deltaCkcsc + deltaHkhsh * deltaHkhsh;
-  console.log(" i < 0 ? 0 : Math.sqrt(i)");
-  console.log(i < 0 ? 0 : Math.sqrt(i));
   return i < 0 ? 0 : Math.sqrt(i);
 }
 
@@ -52,4 +50,3 @@ export function hexToRgb(hex) {
 }
 
 const dif1 = deltaE(hexToRgb("#0000ff"), hexToRgb("#65a2a3")); // 0
-console.log(dif1);

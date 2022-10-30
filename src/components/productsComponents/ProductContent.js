@@ -17,6 +17,9 @@ function ProductContent(props) {
               <article key={index}>
                 <Link to={`/products/${id}`}>
                   <div className="feature-img-container">
+                    {
+                      console.log(filteredProducts)
+                    }
                     <img
                       src={fields?.attachments[fields?.activeImg]?.url}
                       alt=""
