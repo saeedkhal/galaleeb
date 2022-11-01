@@ -43,7 +43,9 @@ function HomeSecound(props) {
           );
         })}
       </section>
-      <button className="all-products">All Products</button>
+      <button className="all-products">
+        <Link to="/products"> All Products</Link>
+      </button>
     </main>
   );
 }
