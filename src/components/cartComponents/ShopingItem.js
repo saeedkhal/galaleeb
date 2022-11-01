@@ -1,15 +1,15 @@
-import React from 'react';
-import { ImCross } from 'react-icons/im';
-import { ImBin } from 'react-icons/im';
-import { VscCircleLargeFilled } from 'react-icons/vsc';
-import { TiPlus, TiMinus } from 'react-icons/ti';
-import shop from '../../assets/images/shop.jpg';
+import React from "react";
+import { ImCross } from "react-icons/im";
+import { ImBin } from "react-icons/im";
+import { VscCircleLargeFilled } from "react-icons/vsc";
+import { TiPlus, TiMinus } from "react-icons/ti";
+import shop from "../../assets/images/shop.jpg";
 function ShopingItem() {
   return (
     <main className="shop-item-container">
       <section className="shop-item">
         <img src={shop} alt="shop" />
-        <article>
+        <article className="shop-item-info">
           <h4>Name</h4>
           <div>
             Color : <VscCircleLargeFilled />

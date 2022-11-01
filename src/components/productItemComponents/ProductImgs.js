@@ -13,8 +13,15 @@ import { TiPlus, TiMinus } from "react-icons/ti";
 import { IoMdArrowRoundBack, IoMdAddCircleOutline } from "react-icons/io";
 import { AppContext } from "../../context/context";
 import { getProductById } from "../../utils/getFeatured";
-import { useParams, useNavigate } from "react-router-dom";
-
+import { useParams, useNavigate, Link } from "react-router-dom";
+import {
+  Magnifier,
+  GlassMagnifier,
+  SideBySideMagnifier,
+  PictureInPictureMagnifier,
+  MOUSE_ACTIVATION,
+  TOUCH_ACTIVATION,
+} from "react-image-magnifiers";
 import Loading from "../sharedCompnents/Loading";
 import axios from "axios";
 function ProductImgs(props) {
@@ -62,9 +69,9 @@ function ProductImgs(props) {
             <IoMdArrowRoundBack />
             Back to products
           </button>
-          <img
-            src={product.fields.attachments[activeIndex].url}
-            alt="img"
+          <GlassMagnifier
+            imageSrc={product.fields.attachments[activeIndex].url}
+            imageAlt="Example"
             className="active-img"
           />
           <div className="imgesitem-container">
@@ -150,9 +157,11 @@ function ProductImgs(props) {
               <span>3</span>
               <TiPlus />
             </div>
-            <button className="add-to-cart">
-              Add To Cart <IoMdAddCircleOutline />
-            </button>
+            <Link to="/cart">
+              <button className="add-to-cart">
+                Add To Cart <IoMdAddCircleOutline />
+              </button>
+            </Link>
           </div>
         </article>
       </section>

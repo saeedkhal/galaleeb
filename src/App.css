@@ -889,11 +889,14 @@ h2 {
   box-sizing: border-box;
 }
 .active-img {
+  margin: auto;
   border-radius: 5px;
   margin-bottom: 15px;
-  height: 600px;
 }
-
+.active-img img {
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
 .active-product-item {
   border: 2px solid var(--clr-primary-4);
 }
@@ -960,6 +963,12 @@ h2 {
 }
 .product-article .color div {
   margin-bottom: 0px;
+}
+.shop-item-info {
+  display: grid;
+  grid-auto-rows: 1fr 1fr 1fr;
+  height: 100%;
+  align-items: center;
 }
 .increase-decrease {
   display: flex;
