@@ -9,14 +9,15 @@ import { IoMdArrowRoundBack, IoMdAddCircleOutline } from "react-icons/io";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { GlassMagnifier } from "react-image-magnifiers";
 import Loading from "../sharedCompnents/Loading";
-import { getProduct } from '../../actions'
+import { getProduct } from '../../actions';
+import { ADDTO_CARD } from '../../assets/contsntants/constants'
 function ProductImgs(props) {
 
-  const { channels, dispatch, product } = useContextProvider();
+  const { channels, dispatch, product, cart } = useContextProvider();
   const nagigate = useNavigate();
   const [loading, setLoading] = useState([]);
   const [sizeIndex, setSizeIndex] = useState(0);
-
+  const [quantity, setQuantity] = useState(1);
   const [activeIndex, setActiveIndex] = useState(0);
   const { id } = useParams();
 
@@ -25,6 +26,37 @@ function ProductImgs(props) {
     await getProduct(dispatch, id);
     setLoading(false);
   };
+
+  const addToCard = () => {
+    const cardEl = {
+      id: product.id,
+      size: product.fields.sizes.find((el, index) => index === sizeIndex) || "",
+      color: product.fields.colors.find((el, index) => index === activeIndex) || "",
+      attchment: product.fields.attachments[activeIndex].url || "",
+      price: product.fields.price || "",
+      quantity,
+      subTotal: product.fields.price || "",
+      name:product.fields.name
+    };
+
+    const productCard = cart?.find(el => el.id === product.id);
+
+    if (cardEl?.color === productCard?.color && cardEl?.size === productCard.size) {
+      const newCard = cart.filter(el => el.id !== productCard?.id);
+      const quantityCalc = productCard?.quantity + cardEl?.quantity;
+      const subTotalCalc = cardEl?.price * quantityCalc;
+      dispatch({
+        type: ADDTO_CARD,
+        payload: [...newCard, { ...cardEl, quantity: quantityCalc, subTotal: subTotalCalc }]
+      });
+
+    } else {
+      return dispatch({
+        type: ADDTO_CARD,
+        payload: [...cart, cardEl]
+      })
+    }
+  }
   useEffect(() => {
     getSingleProduct();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -130,12 +162,21 @@ function ProductImgs(props) {
           </div>
           <div className="increase-decrease">
             <div>
-              <TiMinus />
-              <span>3</span>
-              <TiPlus />
+              <span>
+                <TiMinus onClick={() => {
+                  if (quantity !== 1) {
+                    setQuantity(quantity - 1)
+                  }
+                }
+                } />
+              </span>
+              <span>{quantity}</span>
+              <span>
+                <TiPlus onClick={() => setQuantity(quantity + 1)} />
+              </span>
             </div>
             <Link to="/cart">
-              <button className="add-to-cart">
+              <button disabled={!product.fields.available} className="add-to-cart" onClick={addToCard}>
                 Add To Cart <IoMdAddCircleOutline />
               </button>
             </Link>

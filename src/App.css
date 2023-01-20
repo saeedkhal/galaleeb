@@ -334,6 +334,13 @@ button {
   letter-spacing: 2px;
   text-transform: capitalize;
 }
+.header {
+  text-align: center;
+  color: var(--clr-grey-2);
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
 .home-secound .hr {
   width: 100px;
   margin: auto;
@@ -722,7 +729,7 @@ button {
   height: 75px;
   border-radius: 5px;
   margin-right: 10px;
-  object-fit: cover;
+  object-fit: contain;
 }
 .shop-item-container section article h4 {
   color: var(--clr-grey-2);
@@ -985,6 +992,7 @@ h2 {
 .increase-decrease div svg {
   color: var(--clr-grey-1) !important;
   cursor: pointer;
+  font-size: 20px;
 }
 .increase-decrease div {
   display: flex;
