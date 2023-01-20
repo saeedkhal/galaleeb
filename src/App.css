@@ -518,7 +518,10 @@ button {
   padding: 20px 50px;
   display: grid;
   align-items: center;
-  justify-content: center;
+  position: fixed;
+  bottom: 0px;
+  width: 100vw;
+  box-sizing: border-box;
 }
 .home-footer span {
   color: var(--clr-primary-5);
@@ -976,6 +979,9 @@ h2 {
   grid-auto-rows: 1fr 1fr 1fr;
   height: 100%;
   align-items: center;
+}
+.shop-item-info span{
+  text-transform: capitalize;
 }
 .increase-decrease {
   display: flex;

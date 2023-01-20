@@ -9,7 +9,6 @@ import { UPDATE_CART } from '../../assets/contsntants/constants';
 function ShopingItem({ cartProduct }) {
   const { cart, dispatch } = useContextProvider();
   const updateQuantity = (quantity) => {
-    console.log(quantity);
     const newCart = cart?.map(el => {
       if (el?.id === cartProduct?.id) {
         return { ...el, quantity, subTotal: el?.price * quantity }
@@ -21,16 +20,26 @@ function ShopingItem({ cartProduct }) {
       payload: newCart
     });
   }
+  const removeProduct = () => {
+    const newCard = cart?.filter((el) => {
+      return (!Boolean(el.size === cartProduct?.size && el.id === cartProduct?.id && el.color === cartProduct?.color))
+    }
+    );
+    dispatch({
+      type: UPDATE_CART,
+      payload: newCard
+    });
+  }
   return (
     <main className="shop-item-container">
       <section className="shop-item">
         <img src={cartProduct?.attchment} alt="shop" />
         <article className="shop-item-info">
-          <h4>Name : {cartProduct?.name}</h4>
+          <h4>name : <span> {cartProduct?.name} </span> </h4>
           <div>
-            Color : <VscCircleLargeFilled color={cartProduct?.color} />
+            color : <VscCircleLargeFilled color={cartProduct?.color} />
           </div>
-          <p>{cartProduct?.price}$</p>
+          <p>price : {cartProduct?.price}$</p>
         </article>
       </section>
       <section className="size">{cartProduct?.size}</section>
@@ -50,10 +59,10 @@ function ShopingItem({ cartProduct }) {
       </section>
       <section>
         <span className="subtotal">{cartProduct?.subTotal}$</span>
-        <button className="im-bin">
+        <button onClick={removeProduct} className="im-bin">
           <ImBin />
         </button>
-        <button className="im-cross">
+        <button onClick={removeProduct} className="im-cross">
           <ImCross />
         </button>
       </section>
