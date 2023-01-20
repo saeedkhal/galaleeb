@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useContextProvider } from "../../context/context";
+import { getProducts } from "../../actions";
 function ProductContent(props) {
-  const { getProducts, filteredProducts } = useContextProvider();
+  const { dispatch, filteredProducts } = useContextProvider();
   useEffect(() => {
-    getProducts();
+    getProducts(dispatch);
   }, []);
   return (
     <main className="container productcontent-container">

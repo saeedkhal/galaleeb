@@ -27,7 +27,7 @@ const AppProvider = ({ children }) => {
   }, []);
   return (
     <AppContext.Provider
-      value={{ ...state, OpenSidebar, CloseSideBar, getProducts, dispatch }}
+      value={{ ...state, OpenSidebar, CloseSideBar, dispatch }}
     >
       {children}
     </AppContext.Provider>

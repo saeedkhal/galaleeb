@@ -5,12 +5,11 @@ import {
   RiCheckboxCircleFill,
   RiCheckboxBlankCircleFill,
 } from "react-icons/ri";
-
+import { getProducts } from "../../actions";
 import { deltaE, hexToRgb } from "./utils";
 import sortType from "../../assets/contsntants/constantArr";
 function FilterProducts() {
-  const { dispatch, getProducts, products, channels, categoryies } =
-    useContextProvider();
+  const { dispatch, products, channels, categoryies } = useContextProvider();
   const [filterObject, setFilterObject] = useState({
     category: "",
     price: 150,
@@ -78,7 +77,6 @@ function FilterProducts() {
       });
     switch (filterObject?.sortTypeId) {
       case "0":
-        console.log("0");
         newProducts.sort((a, b) => a?.fields?.price - b?.fields?.price);
         break;
       case "1":
@@ -111,7 +109,7 @@ function FilterProducts() {
         });
         break;
       default:
-        return;
+        newProducts.sort((a, b) => a?.fields?.price - b?.fields?.price);
     }
     dispatch({ type: UPDATE_FILTERED_PRODUCTS, payload: newProducts });
   };
@@ -120,7 +118,7 @@ function FilterProducts() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterObject]);
   useEffect(() => {
-    getProducts();
+    getProducts(dispatch);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (

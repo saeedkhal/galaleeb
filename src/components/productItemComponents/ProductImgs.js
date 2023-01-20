@@ -1,32 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
-import { ImStarHalf, ImStarFull, ImStarEmpty } from "react-icons/im";
+import React, { useEffect, useState } from "react";
+import { ImStarFull, ImStarEmpty } from "react-icons/im";
 import { useContextProvider } from "../../context/context";
 import Rating from "react-rating";
-import {
-  BsCheck,
-  BsFillCheckCircleFill,
-  BsFillCircleFill,
-} from "react-icons/bs";
-import ReactImageMagnify from "react-image-magnify";
+import { BsFillCircleFill } from "react-icons/bs";
 import { FaCheckCircle } from "react-icons/fa";
 import { TiPlus, TiMinus } from "react-icons/ti";
 import { IoMdArrowRoundBack, IoMdAddCircleOutline } from "react-icons/io";
-import { AppContext } from "../../context/context";
-import { getProductById } from "../../utils/getFeatured";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import {
-  Magnifier,
-  GlassMagnifier,
-  SideBySideMagnifier,
-  PictureInPictureMagnifier,
-  MOUSE_ACTIVATION,
-  TOUCH_ACTIVATION,
-} from "react-image-magnifiers";
+import { GlassMagnifier } from "react-image-magnifiers";
 import Loading from "../sharedCompnents/Loading";
 import axios from "axios";
 function ProductImgs(props) {
-  const { dispatch, getProducts, products, channels, categoryies } =
-    useContextProvider();
+  const { channels } = useContextProvider();
   const nagigate = useNavigate();
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState([]);
@@ -39,14 +24,6 @@ function ProductImgs(props) {
     const res = await axios.get(`/Products/${id}`);
     setProduct(res.data);
     setLoading(false);
-  };
-  const getStars = (rating) => {
-    let rate = rating;
-    let starts = [];
-    for (let index = 0; index < rating; index++) {
-      if (rate !== 0) {
-      }
-    }
   };
   useEffect(() => {
     getSingleProduct();
