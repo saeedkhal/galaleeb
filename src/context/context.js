@@ -12,7 +12,7 @@ const initialState = {
   channels: [],
   categoryies: [],
   product: {},
-  cart: []
+  cart: !localStorage.getItem('cart')?.length ? [] : JSON.parse(localStorage.getItem('cart'))
 };
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);

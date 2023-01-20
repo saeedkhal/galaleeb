@@ -10,11 +10,10 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { GlassMagnifier } from "react-image-magnifiers";
 import Loading from "../sharedCompnents/Loading";
 import { getProduct } from '../../actions';
-import { UPDATE_CART } from '../../assets/contsntants/constants'
+import { UPDATE_CART } from '../../assets/contsntants/constants';
 function ProductImgs() {
-
+  const navigate = useNavigate();
   const { channels, dispatch, product, cart } = useContextProvider();
-  const nagigate = useNavigate();
   const [loading, setLoading] = useState([]);
   const [sizeIndex, setSizeIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -35,8 +34,10 @@ function ProductImgs() {
       attchment: product.fields.attachments[activeIndex].url || "",
       price: product.fields.price || "",
       quantity,
-      subTotal: product.fields.price || "",
-      name: product.fields.name
+      subTotal: product?.fields?.price || "",
+      name: product?.fields?.name,
+      freeShipping: product?.fields?.freeShipping || false
+
     };
 
     const productCard = cart?.find(el => el.id === product.id);
@@ -65,6 +66,10 @@ function ProductImgs() {
     return <Loading />;
   }
 
+  if (!Object.keys(product).length) {
+    return navigate('/err');
+  }
+
   return (
     <main className="container">
       <section className="product-container">
@@ -72,7 +77,7 @@ function ProductImgs() {
           <button
             className="backto-product"
             onClick={() => {
-              nagigate("/products");
+              navigate("/products");
             }}
           >
             <IoMdArrowRoundBack />

@@ -47,6 +47,7 @@ const reducer = (state, action) => {
         product: action.payload
       }
     case UPDATE_CART: {
+      localStorage.setItem('cart', JSON.stringify(action?.payload));
       return {
         ...state,
         cart: action?.payload
