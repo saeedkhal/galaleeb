@@ -10,8 +10,8 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { GlassMagnifier } from "react-image-magnifiers";
 import Loading from "../sharedCompnents/Loading";
 import { getProduct } from '../../actions';
-import { ADDTO_CARD } from '../../assets/contsntants/constants'
-function ProductImgs(props) {
+import { UPDATE_CART } from '../../assets/contsntants/constants'
+function ProductImgs() {
 
   const { channels, dispatch, product, cart } = useContextProvider();
   const nagigate = useNavigate();
@@ -36,7 +36,7 @@ function ProductImgs(props) {
       price: product.fields.price || "",
       quantity,
       subTotal: product.fields.price || "",
-      name:product.fields.name
+      name: product.fields.name
     };
 
     const productCard = cart?.find(el => el.id === product.id);
@@ -46,13 +46,13 @@ function ProductImgs(props) {
       const quantityCalc = productCard?.quantity + cardEl?.quantity;
       const subTotalCalc = cardEl?.price * quantityCalc;
       dispatch({
-        type: ADDTO_CARD,
+        type: UPDATE_CART,
         payload: [...newCard, { ...cardEl, quantity: quantityCalc, subTotal: subTotalCalc }]
       });
 
     } else {
       return dispatch({
-        type: ADDTO_CARD,
+        type: UPDATE_CART,
         payload: [...cart, cardEl]
       })
     }
