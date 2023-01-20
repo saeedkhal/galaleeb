@@ -510,15 +510,17 @@ button {
   border: 0;
   border-right: solid 2px #102a42;
   border-radius: 5px 0px 0px 5px;
+  letter-spacing: var(--spacing);
 }
 input:focus-visible {
   border: none;
   outline: transparent;
   color: var(--clr-grey-1);
 }
-input ::placeholder{
+input::placeholder{
   font-weight: bold;
-  color: red;
+  color:var(--clr-grey-1);
+  letter-spacing: var(--spacing);
 }
 /* end home forth section */
 /* start home footer */
