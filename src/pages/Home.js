@@ -11,7 +11,7 @@ function Home(props) {
       <HomeSecound />
       <HomeThird />
       <HomeForth />
-      <Footer />
+
     </main>
   );
 }

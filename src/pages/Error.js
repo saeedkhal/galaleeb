@@ -5,7 +5,7 @@ function Error(props) {
   return (
     <main>
       <ErrorCompnent />
-      <Footer />
+
     </main>
   );
 }

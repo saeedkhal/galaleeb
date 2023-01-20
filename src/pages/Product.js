@@ -11,7 +11,7 @@ function Product() {
     <main>
       <RoutePath productName={product?.fields?.name || ""} />
       <ProductImgs />
-      <Footer />
+
     </main>
   );
 }

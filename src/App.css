@@ -309,9 +309,7 @@ button {
   z-index: 0;
   position: relative;
   box-shadow: aliceblue;
-  box-shadow: -26px 27px 57px 0px rgba(238, 149, 36, 0.78);
-  -webkit-box-shadow: -26px 27px 57px 0px rgba(238, 149, 36, 0.78);
-  -moz-box-shadow: -26px 27px 57px 0px rgba(238, 149, 36, 0.78);
+
 }
 .shop-img .img2 {
   height: 150px;
@@ -484,14 +482,16 @@ button {
   font-size: medium;
 }
 .inputs button {
-  color: var(--clr-black);
+  color: var(--clr-grey-10);
   padding: 5px;
-  background-color: var(--clr-primary-5);
+  background-color:var(--clr-grey-1);
   text-transform: capitalize;
   letter-spacing: var(--spacing);
   font-size: large;
   cursor: pointer;
   transition: var(--transition);
+  border-radius: 0px 5px 5px 0px;
+  padding: 5px;
 }
 .inputs button:hover {
   color: var(--clr-grey-10);
@@ -502,12 +502,23 @@ button {
 .inputs {
   display: grid;
   border-radius: 5px;
-  border: solid 2px var(--clr-black);
+  border: solid 2px var(--clr-grey-1);
   grid-template-columns: 1fr auto;
+  padding: 5px;
 }
 .inputs input {
   border: 0;
   border-right: solid 2px #102a42;
+  border-radius: 5px 0px 0px 5px;
+}
+input:focus-visible {
+  border: none;
+  outline: transparent;
+  color: var(--clr-grey-1);
+}
+input ::placeholder{
+  font-weight: bold;
+  color: red;
 }
 /* end home forth section */
 /* start home footer */
@@ -518,10 +529,6 @@ button {
   padding: 20px 50px;
   display: grid;
   align-items: center;
-  position: fixed;
-  bottom: 0px;
-  width: 100vw;
-  box-sizing: border-box;
 }
 .home-footer span {
   color: var(--clr-primary-5);

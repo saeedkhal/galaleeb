@@ -9,7 +9,7 @@ function Products(props) {
       <RoutePath />
       <FilterProducts />
       <ProductContent />
-      <Footer />
+
     </main>
   );
 }

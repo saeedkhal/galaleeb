@@ -11,7 +11,7 @@ function About(props) {
     <main>
       <RoutePath />
       <AboutSecond />
-      <Footer />
+
     </main>
   );
 }

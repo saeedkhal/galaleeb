@@ -7,9 +7,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './pages/Cart';
 import Product from './pages/Product';
 import Error from './pages/Error';
+import Footer from './components/sharedCompnents/Footer';
 function App() {
   return (
-    <div>
+    <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<NavSideBar />}>
@@ -22,7 +23,8 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </div>
+      <Footer />
+    </>
   );
 }
 

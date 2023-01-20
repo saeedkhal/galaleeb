@@ -7,7 +7,7 @@ function Cart(props) {
     <main>
       <RoutePath />
       <ShopingItems />
-      <Footer />
+
     </main>
   );
 }
