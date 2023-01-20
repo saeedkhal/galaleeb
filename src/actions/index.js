@@ -4,6 +4,7 @@ import {
   UPDATE_ERR,
   UPDATE_CHANNELS,
   UPDATE_CATEGORIES,
+  GET_ONE_PRODUCT
 } from "../assets/contsntants/constants";
 import axios from "axios";
 
@@ -38,3 +39,14 @@ export const getcategoryies = async (dispatch) => {
     dispatch({ type: UPDATE_ERR, payload: true });
   }
 };
+export const getProduct = async (dispatch, id) => {
+  try {
+    dispatch({ type: UPDATE_ISLOADING, payload: true });
+    const res = await axios.get(`/Products/${id}`);
+    dispatch({ type: GET_ONE_PRODUCT, payload: res.data });
+    dispatch({ type: UPDATE_ISLOADING, payload: false });
+  } catch (err) {
+    dispatch({ type: UPDATE_ERR, payload: true });
+  }
+};
+

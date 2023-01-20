@@ -9,20 +9,20 @@ import { IoMdArrowRoundBack, IoMdAddCircleOutline } from "react-icons/io";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { GlassMagnifier } from "react-image-magnifiers";
 import Loading from "../sharedCompnents/Loading";
-import axios from "axios";
+import { getProduct } from '../../actions'
 function ProductImgs(props) {
-  const { channels } = useContextProvider();
+
+  const { channels, dispatch, product } = useContextProvider();
   const nagigate = useNavigate();
-  const [product, setProduct] = useState({});
   const [loading, setLoading] = useState([]);
   const [sizeIndex, setSizeIndex] = useState(0);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const { id } = useParams();
+
   const getSingleProduct = async () => {
     setLoading(true);
-    const res = await axios.get(`/Products/${id}`);
-    setProduct(res.data);
+    await getProduct(dispatch, id);
     setLoading(false);
   };
   useEffect(() => {

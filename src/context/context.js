@@ -11,6 +11,7 @@ const initialState = {
   filteredProducts: [],
   channels: [],
   categoryies: [],
+  product: {}
 };
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);

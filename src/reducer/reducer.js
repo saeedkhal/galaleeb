@@ -7,6 +7,7 @@ import {
   UPDATE_FILTERED_PRODUCTS,
   UPDATE_CHANNELS,
   UPDATE_CATEGORIES,
+  GET_ONE_PRODUCT
 } from "../assets/contsntants/constants";
 const reducer = (state, action) => {
   switch (action.type) {
@@ -39,6 +40,11 @@ const reducer = (state, action) => {
         ...state,
         categoryies: action.payload,
       };
+    case GET_ONE_PRODUCT:
+      return {
+        ...state,
+        product: action.payload
+      }
     default:
       return state;
   }
