@@ -1,13 +1,12 @@
 import React from "react";
-import { useContext } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { AppContext } from "../../context/context";
 import Loading from "../sharedCompnents/Loading";
 import defaultimg from "../../assets/images/defaluteimg.png";
 import { getFeatured } from "../../utils/getFeatured";
-function HomeSecound(props) {
-  const { isLoading, products } = useContext(AppContext);
+import { useContextProvider } from "../../context/context";
+function HomeSecound() {
+  const { isLoading, products } = useContextProvider();
   const featuredProducts = getFeatured(products, { featured: true });
   if (isLoading) {
     return <Loading />;

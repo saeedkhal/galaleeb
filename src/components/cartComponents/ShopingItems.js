@@ -3,18 +3,21 @@ import ShopingItem from './ShopingItem';
 import CeckCart from './CeckCart';
 import { useContextProvider } from '../../context/context';
 import { UPDATE_CART } from '../../assets/contsntants/constants'
+import { useNavigate } from 'react-router-dom';
 
 
 function ShopingItems() {
   const { cart, dispatch } = useContextProvider();
-
+  const navigate = useNavigate()
   return (
     <>
       {
         !cart.length ?
-          <div>
+          <div style={{ textAlign: 'center' }}>
             <h1 className='header'>No Product in The Cart</h1>
-            <button className='shop-now'>Products</button>
+            <button className='shop-now' onClick={() => navigate('/Products')} style={{ marginBottom: '336px' }}>
+              Go Back
+            </button>
           </div>
           :
           <main className="container shop-items-container">

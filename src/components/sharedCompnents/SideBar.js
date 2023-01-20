@@ -3,10 +3,11 @@ import { CgClose } from 'react-icons/cg';
 import logo from '../../assets/images/logo.svg';
 import { BsCartFill, BsFillPersonPlusFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import { AppContext } from '../../context/context';
-import { useContext } from 'react';
+import { useContextProvider } from '../../context/context';
 function SideBar() {
-  const { CloseSideBar, IsSidebarOpen } = useContext(AppContext);
+  const { cart, CloseSideBar, IsSidebarOpen } = useContextProvider();
+  const cartTotal = cart.reduce((prev, current) => prev + current.quantity, 0) || 0
+
   return (
     <main className={IsSidebarOpen ? 'sidebar oprnsidebare' : 'sidebar'}>
       <div className="sidebar-container">
@@ -29,7 +30,7 @@ function SideBar() {
           <article className="cart-sidebar ">
             <a href="/cart">
               cart <BsCartFill />
-              <span className="cart-amount">4</span>
+              <span className="cart-amount">{cartTotal}</span>
             </a>
           </article>
           <article className="login-sidebar">

@@ -1,7 +1,6 @@
 import React from 'react';
 import RoutePath from '../components/sharedCompnents/RoutePath';
 import ProductImgs from '../components/productItemComponents/ProductImgs';
-import Footer from '../components/sharedCompnents/Footer';
 import { useContextProvider } from "../context/context";
 
 function Product() {
@@ -11,7 +10,6 @@ function Product() {
     <main>
       <RoutePath productName={product?.fields?.name || ""} />
       <ProductImgs />
-
     </main>
   );
 }

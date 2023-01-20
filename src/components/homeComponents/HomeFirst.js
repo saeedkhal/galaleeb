@@ -1,8 +1,10 @@
 import React from 'react';
 import homefirstsec from '../../assets/images/homefirstsec.jpeg';
 import homefirstsec2 from '../../assets/images/homefirstsec2.jpeg';
-
+import { useNavigate } from 'react-router'
 function HomeFirst(props) {
+  let navigate = useNavigate();
+
   return (
     <main className="homeFirst-container container">
       <section>
@@ -16,7 +18,7 @@ function HomeFirst(props) {
           aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis
           alias?
         </p>
-        <button className="shop-now">shop now</button>
+        <button onClick={() => navigate('/Products')} className="shop-now">shop now</button>
       </section>
       <section className="shop-img">
         <div className="shadow"></div>

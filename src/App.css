@@ -279,6 +279,9 @@ button {
   cursor: pointer;
   transition: var(--transition);
 }
+.shop-now a{
+  color: var(--clr-grey-10);
+}
 .shop-now:hover {
   color: var(--clr-primary-3);
   background: var(--clr-primary-7);
@@ -627,6 +630,12 @@ input::placeholder{
   padding: 18px;
   color: var(--clr-grey-1);
   margin: 10px auto;
+  letter-spacing: var(--spacing);
+  color: var(--clr-grey-1);
+}
+.search-products::placeholder{
+  color: var(--clr-grey-5);
+
 }
 .header-filter {
   color: var(--clr-grey-2);
