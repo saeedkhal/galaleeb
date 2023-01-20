@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { ImStarFull, ImStarEmpty } from "react-icons/im";
+import { BsCheckLg } from "react-icons/bs";
+import { RxCross2 } from "react-icons/rx";
+
 import { useContextProvider } from "../../context/context";
 import Rating from "react-rating";
 import { BsFillCircleFill } from "react-icons/bs";
@@ -37,7 +40,6 @@ function ProductImgs() {
       subTotal: product?.fields?.price || "",
       name: product?.fields?.name,
       freeShipping: product?.fields?.freeShipping || false
-
     };
 
     const productCard = cart?.find(el => el.id === product.id);
@@ -123,6 +125,10 @@ function ProductImgs() {
           <strong className="price">$ {product.fields.price}</strong>
           <p className="decription">{product.fields.desc}</p>
           <div className="about-product">
+            <div>Free Shipping : </div>
+            <div style={{ fontSize: '18px', display: "flex", alignItems: 'center' }}>
+              {!product?.fields?.freeShipping ? <RxCross2 /> : <BsCheckLg />}
+            </div>
             <div>Available : </div>
             <div>
               {product.fields.available ? "In Stocke" : "not Available"}
