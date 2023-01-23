@@ -12,7 +12,7 @@ function HomeForth(props) {
         </p>
         <article className="inputs">
           <input placeholder="Enter Email" />
-          <button>subscribe</button>
+          <button>Contact</button>
         </article>
       </section>
     </main>

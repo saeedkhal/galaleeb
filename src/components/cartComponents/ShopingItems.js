@@ -15,7 +15,7 @@ function ShopingItems() {
         !cart.length ?
           <div style={{ textAlign: 'center' }}>
             <h1 className='header'>No Product in The Cart</h1>
-            <button className='shop-now' onClick={() => navigate('/Products')} style={{ marginBottom: '336px' }}>
+            <button className='shop-now' onClick={() => navigate('/Products')} style={{ marginBottom: '10px' }}>
               Go Back
             </button>
           </div>
@@ -23,7 +23,6 @@ function ShopingItems() {
           <main className="container shop-items-container">
             <section className="shoping-header">
               <article>Item</article>
-              <article>Size</article>
               <article>Quantity</article>
               <article className="subtotal-header">SubTotal</article>
             </section>
@@ -33,7 +32,7 @@ function ShopingItems() {
               }
             </section>
             <section className="continue-clear">
-              <button>continue shopping</button>
+              <button onClick={() => navigate('/Products')} >continue shopping</button>
               <button onClick={() => dispatch({ type: UPDATE_CART, payload: [] })}>clear cart</button>
             </section>
             <CeckCart />

@@ -40,9 +40,9 @@ function ShopingItem({ cartProduct }) {
             color : <VscCircleLargeFilled color={cartProduct?.color} />
           </div>
           <p>price : {cartProduct?.price}$</p>
+          <p>size : {cartProduct?.size}</p>
         </article>
       </section>
-      <section className="size">{cartProduct?.size}</section>
       <section className="quantity">
         <span>
           <TiMinus onClick={() => {

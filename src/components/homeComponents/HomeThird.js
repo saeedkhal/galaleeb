@@ -34,7 +34,7 @@ function HomeThird(props) {
         </article>
         <article>
           <GiCompass />
-          <h2>mission</h2>
+          <h2>Vission</h2>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.
             Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit

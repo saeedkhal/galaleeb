@@ -41,10 +41,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.main-container{
+    display: grid;
+    grid-template-rows: 1fr auto;
+    min-height: 100vh
+}
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",monospace;
 }
 
 .App {
@@ -136,11 +139,13 @@ button {
   cursor: pointer;
   position: relative;
 }
-.cart-login article a {
+.cart-login article , .cart-login article a {
   color: var(--clr-grey-2);
 }
 .login {
   margin-left: 1em;
+  display: flex;
+  align-items: center;
 }
 .bars-icon {
   font-size: 2em;
@@ -232,6 +237,12 @@ button {
 }
 .login-sidebar {
   margin-left: 20px;
+}
+
+.login img {
+  border-radius: 50%;
+  width: 30px;
+  border: 2px solid var(--clr-primary-6);
 }
 
 .cart-amount {
@@ -534,6 +545,7 @@ input::placeholder{
   padding: 20px 50px;
   display: grid;
   align-items: center;
+  align-self: flex-end;
 }
 .home-footer span {
   color: var(--clr-primary-5);
@@ -713,7 +725,7 @@ input::placeholder{
 /* start shoping item  */
 .shoping-header {
   display: grid;
-  grid-template-columns: 2fr auto auto auto;
+  grid-template-columns: 2fr auto auto;
   grid-column-gap: 20px;
   font-size: 15px;
   color: var(--clr-grey-6);
@@ -723,7 +735,7 @@ input::placeholder{
 }
 .shop-item-container {
   display: grid;
-  grid-template-columns: 1fr auto auto auto;
+  grid-template-columns: 1fr auto auto ;
   grid-column-gap: 20px;
   font-size: 15px;
   padding: 20px 0px;
@@ -779,9 +791,7 @@ input::placeholder{
 }
 .shop-item-container .quantity span {
   font-size: larger;
-  margin: 0px 10px;
-  /* border: 1px solid var(--clr-grey-1); */
-  padding: 0px 6px;
+  margin: 0px 10px 0px 0px;
 }
 .im-bin,
 .im-cross {
@@ -1133,10 +1143,10 @@ h2 {
     justify-content: center;
   }
   .shoping-header {
-    grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr ;
   }
   .shop-item-container {
-    grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr ;
   }
   .ceckcart-container {
     justify-content: flex-end;
@@ -1249,12 +1259,12 @@ h2 {
   /*start about */
   /* start cart */
   .shoping-header {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
 
     font-size: 18px;
   }
   .shop-item-container {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
 
     font-size: 18px;
   }

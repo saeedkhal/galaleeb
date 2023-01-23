@@ -8,7 +8,8 @@ import {
   UPDATE_CHANNELS,
   UPDATE_CATEGORIES,
   GET_ONE_PRODUCT,
-  UPDATE_CART
+  UPDATE_CART,
+  UPDATEUSER
 } from "../assets/contsntants/constants";
 const reducer = (state, action) => {
   switch (action.type) {
@@ -53,6 +54,13 @@ const reducer = (state, action) => {
         cart: action?.payload
       }
     }
+    case UPDATEUSER: {
+      return {
+        ...state,
+        user: action.payload
+      }
+    }
+
     default:
       return state;
   }

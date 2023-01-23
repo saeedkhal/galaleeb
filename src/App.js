@@ -11,19 +11,26 @@ import Footer from './components/sharedCompnents/Footer';
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<NavSideBar />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="products" element={<Products />} />
-            <Route path="products/:id" element={<Product />} />
-            <Route path="cart" element={<Cart />} />
-            <Route path="*" element={<Error />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-      <Footer />
+      <main className='main-container'>
+        <section>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<NavSideBar />}>
+                <Route index element={<Home />} />
+                <Route path="about" element={<About />} />
+                <Route path="products" element={<Products />} />
+                <Route path="products/:id" element={<Product />} />
+                <Route path="cart" element={<Cart />} />
+                <Route path="*" element={<Error />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </section>
+        <section>
+          <Footer />
+        </section>
+      </main>
+
     </>
   );
 }

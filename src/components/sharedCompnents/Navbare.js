@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo_fill.svg";
 import { useContextProvider } from "../../context/context";
 function Navbare() {
-  const { OpenSidebar, cart } = useContextProvider();
-  const cartTotal = cart.reduce((prev, current) => prev + current.quantity, 0) || 0
+  const { OpenSidebar, cart, signInwithGoogle, user, logOut } = useContextProvider();
+  const cartTotal = cart.reduce((prev, current) => prev + current.quantity, 0) || 0;
   return (
     <main className="nav-container ">
       <section className="nav-bar container">
@@ -37,11 +37,15 @@ function Navbare() {
               <span className="cart-amount">{cartTotal}</span>
             </Link>
           </article>
-          <article className="login">
-            <a href="/login">
-              login <BsFillPersonPlusFill />
-            </a>{" "}
-          </article>
+
+          {
+            !Object.keys(user).length ?
+              <article onClick={signInwithGoogle} className="login">  login <BsFillPersonPlusFill />  </article>
+              :
+              <article onClick={logOut} className="login">  LogOut <img src={user?.photoURL} alt='user' />  </article>
+          }
+
+
         </div>
         <GoThreeBars className="bars-icon" onClick={() => OpenSidebar()} />
       </section>
