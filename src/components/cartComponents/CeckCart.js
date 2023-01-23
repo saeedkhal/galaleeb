@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContextProvider } from '../../context/context';
 function CeckCart() {
-  const { cart } = useContextProvider();
+  const { cart, signInwithGoogle, user } = useContextProvider();
 
 
   const summary = cart.reduce((prev, current) => {
@@ -14,8 +14,6 @@ function CeckCart() {
     freeShipping: false
   });
 
-  console.log(summary);
-  console.log(cart);
   return (
     <main className="ceckcart-container">
       <section>
@@ -30,7 +28,9 @@ function CeckCart() {
             order Total : <span>{summary?.freeShipping ? summary?.subTotal - 5 : summary?.subTotal}$</span>
           </h2>
         </article>
-        <button>Login</button>
+        {
+          !Object.keys(user) ? <button onClick={signInwithGoogle}>Login</button> : ''
+        }
       </section>
     </main>
   );
