@@ -49,4 +49,3 @@ export const getProduct = async (dispatch, id) => {
     dispatch({ type: UPDATE_ERR, payload: true });
   }
 };
-

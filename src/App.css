@@ -881,6 +881,13 @@ h2 {
   margin-top: 20px;
   font-weight: bolder;
   transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content:center ;
+
+}
+.ceckcart-container section button span{
+  padding-left: 5px;
 }
 .ceckcart-container section button:hover {
   background-color: var(--clr-grey-9);

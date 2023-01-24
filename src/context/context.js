@@ -52,7 +52,23 @@ const AppProvider = ({ children }) => {
       console.log(err)
     })
   }
+  // sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY);
 
+  // const sendEmail = async (to, subject, text, html) => {
+  //   const msg = {
+  //     to,
+  //     from: 'sender@example.com',
+  //     subject,
+  //     text,
+  //     html
+  //   };
+  //   try {
+  //     await sgMail.send(msg);
+  //     console.log("Email sent successfully");
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
   useEffect(() => {
     getProducts(dispatch);
