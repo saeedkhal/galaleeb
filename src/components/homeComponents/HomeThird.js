@@ -5,7 +5,7 @@ function HomeThird(props) {
     <main className="home-third container">
       <section className="third-des">
         <h1 className="third-header">
-          custom furniture <br /> built only for you
+          custom colothes <br /> built only for you
         </h1>
         <p className="third-par">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum

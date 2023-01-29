@@ -520,7 +520,7 @@ button {
   grid-template-columns: 1fr auto;
   padding: 5px;
 }
-.inputs input {
+ input {
   border: 0;
   border-right: solid 2px #102a42;
   border-radius: 5px 0px 0px 5px;
@@ -535,7 +535,15 @@ input::placeholder{
   font-weight: bold;
   color:var(--clr-grey-1);
   letter-spacing: var(--spacing);
+  opacity: 0.5;
 }
+input:focus::placeholder {
+  color: transparent;
+}
+input:focus{
+  border: 2px solid var(--clr-grey-7) !important;
+}
+
 /* end home forth section */
 /* start home footer */
 .home-footer {
@@ -1069,6 +1077,85 @@ h2 {
   border: 1px solid var(--clr-grey-4);
   font-weight: bold;
 }
+
+/* start contact form */
+.contact-form-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 100px;
+  grid-gap: 120px;
+
+}
+.contact-form-container section:nth-child(1){
+  width: 80%;
+  margin: auto;
+}
+.contact-form{
+  background-color:#fff;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px 100px;
+}
+.contact-form article{
+  position: relative;
+  overflow: hidden;
+}
+.contact-form-container section div:nth-child(2) {
+  margin-top: 20px;
+}
+.contact-form-container input, .contact-form-container textarea{
+  border-radius: 5px;
+  border: solid 2px var(--clr-grey-1);
+  padding: 5px;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+textarea::placeholder{
+  font-weight: bold;
+  color:var(--clr-grey-1);
+  letter-spacing: var(--spacing);
+  opacity: 0.5;
+  line-height: 20px;
+}
+textarea:focus::placeholder {
+  color: transparent;
+}
+textarea{
+  min-height: 150px;
+}
+.contact-form-container label{
+  color: var(--clr-grey-1);
+  margin-bottom: 10px;
+  display: block;
+}
+textarea:focus{
+  border: 2px solid var(--clr-grey-7) !important;
+}
+
+.contact-form-container button{
+  background-color: var(--clr-grey-1);
+  color: var(--clr-grey-10);
+  min-width: 120px;
+  border-radius: 10px;
+  height: 50px;
+  margin-top: 20px;
+  float: right;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+  font-size: 15px;
+}
+.contact-form-container button:hover{
+  background-color: var(--clr-grey-10);
+  color: var(--clr-grey-1);
+  border: 1px solid var(--clr-grey-1);
+}
+/* end contact form */
+
 .sizes span {
   padding: 2px 5px;
   cursor: pointer;

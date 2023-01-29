@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './pages/Cart';
 import Product from './pages/Product';
 import Error from './pages/Error';
+import Contact from './pages/Contact';
 import Footer from './components/sharedCompnents/Footer';
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                 <Route path="products" element={<Products />} />
                 <Route path="products/:id" element={<Product />} />
                 <Route path="cart" element={<Cart />} />
+                <Route path="contact" element={<Contact />} />
                 <Route path="*" element={<Error />} />
               </Route>
             </Routes>

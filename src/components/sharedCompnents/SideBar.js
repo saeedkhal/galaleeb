@@ -25,6 +25,9 @@ function SideBar() {
           <li>
             <Link to="/products">Products</Link>
           </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
         </ul>
         <div className="cart-login-sidebar">
           <article className="cart-sidebar ">
