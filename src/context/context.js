@@ -19,6 +19,7 @@ const initialState = {
   product: {},
   cart: !localStorage.getItem('cart')?.length ? [] : JSON.parse(localStorage.getItem('cart')),
   user: {},
+  filterColor: false
 };
 
 
@@ -58,17 +59,6 @@ const AppProvider = ({ children }) => {
     getChannels(dispatch);
     getcategoryies(dispatch);
   }, []);
-  useEffect(() => {
-    if (state?.products?.length) {
-      dispatch({
-        type: 'UPDATE_CART',
-        payload: state?.cart.map(el => {
-          return { ...el, attchment: state?.products?.find(products => products?.id === el.id)?.fields?.attachments[el?.colorIndex].url }
-        })
-      })
-    }
-
-  }, [state?.products]);
   useEffect(() => {
     const unsubscrib = onAuthStateChanged(auth, (user) => {
       if (user) {
