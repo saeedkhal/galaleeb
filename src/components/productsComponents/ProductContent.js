@@ -4,22 +4,36 @@ import { Link } from "react-router-dom";
 import { useContextProvider } from "../../context/context";
 import { getProducts } from "../../actions";
 function ProductContent(props) {
-  const { dispatch, filteredProducts } = useContextProvider();
+  const { dispatch, filteredProducts, filterColor } = useContextProvider();
   useEffect(() => {
     getProducts(dispatch);
   }, []);
+
+  let newProducts = []
+  if (filteredProducts?.length && !filterColor) {
+    filteredProducts.forEach((Product) => {
+      Product?.fields?.attachments?.forEach((attch) => {
+        newProducts[newProducts.length] = { ...Product, url: attch?.url }
+      })
+    });
+  } else {
+    filteredProducts.forEach((Product) => {
+      newProducts[newProducts.length] = { ...Product, url: Product?.fields?.attachments[Product?.fields?.activeImg]?.url }
+    });
+  }
+
   return (
     <main className="container productcontent-container">
-      {filteredProducts?.length ? (
+      {newProducts?.length ? (
         <section className="feature-content grid-4">
-          {filteredProducts?.map((product, index) => {
+          {newProducts?.map((product, index) => {
             const { id, fields } = product;
             return (
               <article key={index}>
                 <Link to={`/products/${id}`}>
                   <div className="feature-img-container">
                     <img
-                      src={fields?.attachments[fields?.activeImg]?.url}
+                      src={product?.url}
                       alt=""
                     />
                     <div className="search">

@@ -5,6 +5,7 @@ import {
   RiCheckboxCircleFill,
   RiCheckboxBlankCircleFill,
 } from "react-icons/ri";
+import { FILTER_COLOR } from '../../assets/contsntants/constants'
 import { getProducts } from "../../actions";
 import { deltaE, hexToRgb } from "./utils";
 import sortType from "../../assets/contsntants/constantArr";
@@ -199,7 +200,10 @@ function FilterProducts() {
           <button
             className="All"
             style={!filterObject?.color ? { borderBottom: "1px solid" } : {}}
-            onClick={() => setFilterObject({ ...filterObject, color: "" })}
+            onClick={() => {
+              dispatch({ type: FILTER_COLOR, payload: false })
+              setFilterObject({ ...filterObject, color: '' })
+            }}
           >
             All
           </button>
@@ -207,7 +211,10 @@ function FilterProducts() {
             return (
               <button
                 key={index}
-                onClick={() => setFilterObject({ ...filterObject, color })}
+                onClick={() => {
+                  dispatch({ type: FILTER_COLOR, payload: true })
+                  setFilterObject({ ...filterObject, color })
+                }}
               >
                 {filterObject?.color === color ? (
                   <RiCheckboxCircleFill style={{ color }} />

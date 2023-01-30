@@ -11,4 +11,6 @@ export const UPDATE_CATEGORIES = "UPDATE_CATEGORIES";
 export const GET_ONE_PRODUCT = "GET_ONE_PRODUCT";
 export const UPDATE_CART = "UPDATE_CART";
 export const UPDATEUSER = "UPDATEUSER";
+export const FILTER_COLOR = "FILTER_COLOR";
+
 

@@ -9,7 +9,8 @@ import {
   UPDATE_CATEGORIES,
   GET_ONE_PRODUCT,
   UPDATE_CART,
-  UPDATEUSER
+  UPDATEUSER,
+  FILTER_COLOR
 } from "../assets/contsntants/constants";
 const reducer = (state, action) => {
   switch (action.type) {
@@ -58,6 +59,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: action.payload
+      }
+    }
+    case FILTER_COLOR: {
+      return {
+        ...state,
+        filterColor: action.payload
       }
     }
 
