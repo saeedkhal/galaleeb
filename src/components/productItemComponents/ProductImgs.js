@@ -35,6 +35,7 @@ function ProductImgs() {
       size: product.fields.sizes.find((el, index) => index === sizeIndex) || "",
       color: product.fields.colors.find((el, index) => index === activeIndex) || "",
       attchment: product.fields.attachments[activeIndex].url || "",
+      colorIndex: activeIndex,
       price: product.fields.price || "",
       quantity,
       subTotal: product?.fields?.price || "",

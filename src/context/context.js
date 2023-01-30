@@ -93,7 +93,18 @@ const AppProvider = ({ children }) => {
       }
     });
     return unsubscrib
-  }, [])
+  }, []);
+  useEffect(() => {
+    if (state?.products?.length) {
+      dispatch({
+        type: 'UPDATE_CART',
+        payload: state?.cart.map(el => {
+          return { ...el, attchment: state?.products?.find(products => products?.id === el.id)?.fields?.attachments[el?.colorIndex].url }
+        })
+      })
+    }
+
+  }, [state?.products]);
   return (
     <AppContext.Provider
       value={{ ...state, OpenSidebar, CloseSideBar, dispatch, signInwithGoogle, logOut }}

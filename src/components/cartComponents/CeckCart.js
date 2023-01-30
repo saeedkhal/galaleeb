@@ -15,14 +15,26 @@ function CeckCart() {
     freeShipping: false
   });
 
+
+  async function fetchImageAsBlob(url) {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    return blob;
+  }
   const handelOrder = async () => {
+    const url = `https://api.telegram.org/bot${process.env.REACT_APP_TELEGRAM_API_KEY}/sendPhoto`;
+    const photo = await fetchImageAsBlob('https://v5.airtableusercontent.com/v1/14/14/1675080000000/rWVKRmfUFOcXEezQ-TNN-w/T29fUVeQdJv9NLkjxtjwMLDP2ZLUWofnv2DyaiYyG4Vp4EWfesZ4xqVhxY5S5gbDnCdzR2hptYxeD8OWxJ_uyUDH-4BwBfKBsM5d0zuQF5U/8xku5Fd1Vv-0EYSZ_oX4ILt8P0Es1BQBYJDGOVmTxw0');
     try {
-      const response = await fetch(
-        'https://api.telegram.org/bot5528139786:AAGxkRgU0_Huh70DrNp79TGJg-KhgVBnp6U/sendMessage?'
-        + new URLSearchParams({
-          chat_id: '-1001859037553',
-          text: `saeed saeed here is \n the order`
-        }), { method: 'GET' });
+      const formData = new FormData();
+      formData.append("chat_id", process.env.REACT_APP_TELEGRAM_CHAT_ID);
+      formData.append("caption", "text");
+      formData.append("photo", photo);
+
+      const response = await fetch(url, {
+        method: "POST",
+        body: formData
+      });
+      return response.json();
 
       await response.json(); // parses JSON response into native JavaScript objects
       alert.success('Order sent suucefuly');
@@ -32,6 +44,7 @@ function CeckCart() {
       console.log(err)
     }
   }
+
 
   return (
     <main className="ceckcart-container">
@@ -49,9 +62,10 @@ function CeckCart() {
         </article>
 
         {
-          !Object.keys(user).length ? <button onClick={signInwithGoogle}>
-            <FcGoogle />   <span>Log in using Google</span>
-          </button> : ''
+          !Object.keys(user).length ?
+            <button onClick={signInwithGoogle}>
+              <FcGoogle />   <span>Log in using Google</span>
+            </button> : (!cart?.length ? "" : <button onClick={handelOrder}>Order now</button>)
         }
       </section>
     </main>
