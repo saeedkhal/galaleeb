@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContextProvider } from '../../context/context';
 import { FcGoogle } from 'react-icons/fc';
 import { useAlert } from 'react-alert';
 import { ImCross } from 'react-icons/im'
 function CeckCart() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [phone, setPhone] = useState('');
   const alert = useAlert();
   const { cart, signInwithGoogle, user } = useContextProvider();
 
@@ -24,25 +26,44 @@ function CeckCart() {
     const blob = await response.blob();
     return blob;
   }
-  const handelOrder = async () => {
-    alert.info('Loading ...');
-    const url = `https://api.telegram.org/bot${process.env.REACT_APP_TELEGRAM_API_KEY}/sendPhoto`;
-    const photo = await fetchImageAsBlob('https://v5.airtableusercontent.com/v1/14/14/1675080000000/rWVKRmfUFOcXEezQ-TNN-w/T29fUVeQdJv9NLkjxtjwMLDP2ZLUWofnv2DyaiYyG4Vp4EWfesZ4xqVhxY5S5gbDnCdzR2hptYxeD8OWxJ_uyUDH-4BwBfKBsM5d0zuQF5U/8xku5Fd1Vv-0EYSZ_oX4ILt8P0Es1BQBYJDGOVmTxw0');
-    try {
-      const formData = new FormData();
-      formData.append("chat_id", process.env.REACT_APP_TELEGRAM_CHAT_ID);
-      formData.append("caption", "text");
-      formData.append("photo", photo);
-      const response = await fetch(url, {
-        method: "POST",
-        body: formData
-      });
 
-      await response.json(); // parses JSON response into native JavaScript objects
+  const sendMessage = async (order) => {
+    const url = `https://api.telegram.org/bot${process.env.REACT_APP_TELEGRAM_API_KEY}/sendPhoto`;
+
+    const photo = await fetchImageAsBlob(order?.attchment);
+
+    const formData = new FormData();
+    formData.append("chat_id", process.env.REACT_APP_TELEGRAM_CHAT_ID);
+    formData.append("caption", `product id= ${order?.id}`);
+    formData.append("photo", photo);
+    const response = await fetch(url, {
+      method: "POST",
+      body: formData
+    });
+
+    const resJson = await response.json();
+    if (!resJson.ok) {
       alert.removeAll();
+      alert.error(resJson?.description || 'Internal server error')
+    }
+  }
+  const handelOrder = async () => {
+    try {
+      // const reg = new RegExp('^((010)|(015)|(011)|(012))\d{8}');
+      const pass = /^((010)|(015)|(011)|(012))\d{8}/.test(phone);
+      if (!pass) {
+        return alert.error('please provide  valid phone number')
+      }
+      // alert.info('Loading ...');
+      cart?.forEach(el => {
+        sendMessage(el)
+      });
+      // alert.removeAll();
       alert.success('Order sent suucefuly');
 
+
     } catch (err) {
+      alert.removeAll();
       alert.error('Internal server error')
       console.log(err)
     }
@@ -68,17 +89,18 @@ function CeckCart() {
           !Object.keys(user).length ?
             <button onClick={signInwithGoogle}>
               <FcGoogle />   <span>Log in using Google</span>
-            </button> : (!cart?.length ? "" : <button onClick={handelOrder}>Order now</button>)
+            </button> : (!cart?.length ? "" : <button onClick={() => setIsModalOpen(true)}>Order now</button>)
         }
       </section>
-      <div className='order-modal'>
+      <div className={isModalOpen ? 'order-modal' : 'order-modal close-modal'}>
         <div className='order-modal-content'>
-          <ImCross />
+          <ImCross onClick={() => setIsModalOpen(false)} />
           <h1>
             please fill your phone number
           </h1>
-          <label for='phone'> Phone Number</label>
-          <input />
+          <label for='phone'> Phone Number : </label>
+          <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder='+20 1xxxxxxxxx' />
+          <button className='order-btn' onClick={handelOrder}>Order Now</button>
         </div>
       </div>
     </main>

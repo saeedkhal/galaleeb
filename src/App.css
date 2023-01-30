@@ -1162,7 +1162,9 @@ h2 {
   }
   .order-modal-content input:focus{
     border: 1px solid var(--clr-grey-5);
-
+  }
+  .order-modal-content input:focus::placeholder{
+    color: transparent;
   }
   
   .order-modal-content svg{
@@ -1176,6 +1178,23 @@ h2 {
 
   .close-modal{
     display: none;
+  }
+  .order-btn {
+    display: block;
+    width: 120px;
+    margin: auto;
+    background: var(--clr-grey-1);
+    color: var(--clr-grey-10);
+    border-radius: 5px;
+    height: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+    border: 1px solid var(--clr-grey-1);
+    transition: 0.5s;
+  }
+  .order-btn:hover{
+    background: var(--clr-grey-3);
   }
 /* end modal */
 @-webkit-keyframes animate-preloader {
