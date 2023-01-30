@@ -1,7 +1,6 @@
 import React from 'react';
 import { useContextProvider } from '../../context/context';
-import { FcGoogle } from 'react-icons/fc';
-
+import { FcGoogle } from 'react-icons/fc'
 function CeckCart() {
   const { cart, signInwithGoogle, user } = useContextProvider();
 
@@ -33,8 +32,7 @@ function CeckCart() {
       console.log(err)
     }
   }
-  console.log(summary);
-  console.log(cart);
+
   return (
     <main className="ceckcart-container">
       <section>
@@ -49,11 +47,11 @@ function CeckCart() {
             order Total : <span>{summary?.freeShipping ? summary?.subTotal - 5 : summary?.subTotal}$</span>
           </h2>
         </article>
+
         {
-          !Object.keys(user).length ?
-            <button onClick={signInwithGoogle}>
-              <FcGoogle />   <span>Log in using Google</span>
-            </button> : (!cart.length ? '' : <button onClick={handelOrder}>make order</button>)
+          !Object.keys(user).length ? <button onClick={signInwithGoogle}>
+            <FcGoogle />   <span>Log in using Google</span>
+          </button> : ''
         }
       </section>
     </main>

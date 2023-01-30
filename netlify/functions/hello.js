@@ -1,11 +1,12 @@
 require("dotenv").config();
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY);
+sgMail.setApiKey('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');
+console.log(process.env.REACT_APP_SENDGRID_API_KEY)
 exports.handler = async function (event, context) {
     const { to, subject, text } = JSON.parse(event.body);
     const msg = {
         to,
-        from: 'nnowyan@gmail.com',
+        from: 'sender@example.com',
         subject,
         text
     };
