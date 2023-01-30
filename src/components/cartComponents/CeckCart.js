@@ -4,6 +4,8 @@ import { FcGoogle } from 'react-icons/fc';
 
 function CeckCart() {
   const { cart, signInwithGoogle, user } = useContextProvider();
+
+
   const summary = cart.reduce((prev, current) => {
     return {
       subTotal: prev.subTotal + current.subTotal,
@@ -31,6 +33,8 @@ function CeckCart() {
       console.log(err)
     }
   }
+  console.log(summary);
+  console.log(cart);
   return (
     <main className="ceckcart-container">
       <section>
