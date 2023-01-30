@@ -10,7 +10,7 @@ import AlertTemplate from 'react-alert-template-basic';
 import { options } from './utils/alter.options'
 
 
-axios.defaults.headers.common['Authorization'] = 'Bearer keyZ4drcrVYtlksE4';
+axios.defaults.headers.common['Authorization'] = `Bearer ${process.env.REACT_APP_AIR_TABLE_API_TOKEN}`;
 axios.defaults.baseURL = 'https://api.airtable.com/v0/appAS2roJGcDlQhwh/';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

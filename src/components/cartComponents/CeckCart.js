@@ -2,6 +2,7 @@ import React from 'react';
 import { useContextProvider } from '../../context/context';
 import { FcGoogle } from 'react-icons/fc';
 import { useAlert } from 'react-alert';
+import { ImCross } from 'react-icons/im'
 function CeckCart() {
   const alert = useAlert();
   const { cart, signInwithGoogle, user } = useContextProvider();
@@ -70,6 +71,16 @@ function CeckCart() {
             </button> : (!cart?.length ? "" : <button onClick={handelOrder}>Order now</button>)
         }
       </section>
+      <div className='order-modal'>
+        <div className='order-modal-content'>
+          <ImCross />
+          <h1>
+            please fill your phone number
+          </h1>
+          <label for='phone'> Phone Number</label>
+          <input />
+        </div>
+      </div>
     </main>
   );
 }
