@@ -1,7 +1,9 @@
 import React from 'react';
 import { useContextProvider } from '../../context/context';
-import { FcGoogle } from 'react-icons/fc'
+import { FcGoogle } from 'react-icons/fc';
+import { useAlert } from 'react-alert';
 function CeckCart() {
+  const alert = useAlert();
   const { cart, signInwithGoogle, user } = useContextProvider();
 
 
@@ -22,6 +24,7 @@ function CeckCart() {
     return blob;
   }
   const handelOrder = async () => {
+    alert.info('Loading ...');
     const url = `https://api.telegram.org/bot${process.env.REACT_APP_TELEGRAM_API_KEY}/sendPhoto`;
     const photo = await fetchImageAsBlob('https://v5.airtableusercontent.com/v1/14/14/1675080000000/rWVKRmfUFOcXEezQ-TNN-w/T29fUVeQdJv9NLkjxtjwMLDP2ZLUWofnv2DyaiYyG4Vp4EWfesZ4xqVhxY5S5gbDnCdzR2hptYxeD8OWxJ_uyUDH-4BwBfKBsM5d0zuQF5U/8xku5Fd1Vv-0EYSZ_oX4ILt8P0Es1BQBYJDGOVmTxw0');
     try {
@@ -29,14 +32,13 @@ function CeckCart() {
       formData.append("chat_id", process.env.REACT_APP_TELEGRAM_CHAT_ID);
       formData.append("caption", "text");
       formData.append("photo", photo);
-
       const response = await fetch(url, {
         method: "POST",
         body: formData
       });
-      return response.json();
 
       await response.json(); // parses JSON response into native JavaScript objects
+      alert.removeAll();
       alert.success('Order sent suucefuly');
 
     } catch (err) {
