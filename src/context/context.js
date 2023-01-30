@@ -52,6 +52,7 @@ const AppProvider = ({ children }) => {
       console.log(err)
     })
   }
+
   useEffect(() => {
     getProducts(dispatch);
     getChannels(dispatch);
@@ -71,13 +72,11 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     const unsubscrib = onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user)
         dispatch({
           type: UPDATEUSER,
           payload: user,
         })
       } else {
-        console.log('user', user);
         dispatch({
           type: UPDATEUSER,
           payload: {},

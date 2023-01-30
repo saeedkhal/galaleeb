@@ -5,8 +5,8 @@ function HomeForth() {
 
   const [emailBody, setEmailBody] = useState('');
 
-  const sendEmail = async (to, subject, body) => {
-    const data = { to, from: 'someOne.gmail.om', subject, text: body }
+  const sendEmail = async (to, subject, text) => {
+    const data = { to, subject, text }
     try {
       const response = await fetch('./.netlify/functions/hello', {
 
@@ -23,7 +23,8 @@ function HomeForth() {
       });
 
       const resonseJson = await response.json(); // parses JSON response into native JavaScript objects
-      console.log("resonseJson", resonseJson)
+      alert.success('message sent suucefuly')
+
     } catch (err) {
       alert.error('Internal server error')
       console.log(err)
@@ -42,13 +43,13 @@ function HomeForth() {
         <article className="inputs">
           <input value={emailBody} onChange={(e) => setEmailBody(e.target.value)} placeholder="Enter Message" />
           <button
-            onClick={() => sendEmail('nnowyan@gmail.com', 'e-commerce', emailBody)}
+            onClick={() => sendEmail('saeed55khaled@gmail.com', 'e-commerce', emailBody)}
           >
             Contact
           </button>
         </article>
       </section>
-    </main>
+    </main >
   );
 }
 

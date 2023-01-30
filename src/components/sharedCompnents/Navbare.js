@@ -29,6 +29,10 @@ function Navbare() {
           <li>
             <Link to="/products">Products</Link>
           </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+
         </ul>
         <div className="cart-login">
           <article className="cart">
