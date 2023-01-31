@@ -1,5 +1,5 @@
 :root {
-  --clr-primary-1: #453227;
+  /* --clr-primary-1: #453227;
   --clr-primary-2: #5f4435;
   --clr-primary-3: #795744;
   --clr-primary-4: #936a53;
@@ -8,7 +8,18 @@
   --clr-primary-7: #c5a491;
   --clr-primary-8: #d1b6a8;
   --clr-primary-9: #decbc0;
-  --clr-primary-10: #eaded7;
+  --clr-primary-10: #eaded7; */
+  --clr-primary-1: #7c2d12;
+  --clr-primary-2: #9a3412;
+  --clr-primary-3: #c2410c;
+  --clr-primary-4: #ea580c;
+  --clr-primary-5: #f97316;
+  --clr-primary-6: #fb923c;
+  --clr-primary-7: #fdba74;
+  --clr-primary-8: #fed7aa;
+  --clr-primary-9: #ffedd5;
+  --clr-primary-10: #ffedd5;
+
   --clr-grey-1: #102a42;
   --clr-grey-2: #243a52;
   --clr-grey-3: #324d67;
