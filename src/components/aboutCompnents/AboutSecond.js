@@ -1,5 +1,5 @@
 import React from 'react';
-import heroabout from '../../assets/images/heroabout.jpeg';
+import heroabout from '../../assets/images/aboutus.jpg';
 function AboutSecond(props) {
   return (
     <main className="container">
