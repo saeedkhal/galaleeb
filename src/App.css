@@ -410,7 +410,7 @@ button {
   letter-spacing: var(--spacing);
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
 }
 .product-info > span {
   float: right;

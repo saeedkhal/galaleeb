@@ -7,6 +7,7 @@ function ProductContent(props) {
   const { dispatch, filteredProducts } = useContextProvider();
   useEffect(() => {
     getProducts(dispatch);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <main className="container productcontent-container">

@@ -104,6 +104,7 @@ const AppProvider = ({ children }) => {
       })
     }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state?.products]);
   return (
     <AppContext.Provider
