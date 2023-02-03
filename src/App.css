@@ -550,7 +550,7 @@ input::placeholder{
 /* end home forth section */
 /* start home footer */
 .home-footer {
-  background-color: var(--clr-black);
+  background-color: var(--clr-grey-3);
   color: var(--clr-grey-10);
   text-align: center;
   padding: 20px 50px;
