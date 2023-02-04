@@ -1,38 +1,44 @@
 import React, { useState } from 'react';
-import { useAlert } from 'react-alert'
+import { useAlert } from 'react-alert';
+
 function HomeForth() {
   const alert = useAlert()
 
   const [emailBody, setEmailBody] = useState('');
 
-  const sendEmail = async (to, subject, body) => {
-    const data = { to, from: 'someOne.gmail.om', subject, text: body }
-    try {
-      const response = await fetch('./.netlify/functions/hello', {
+  const sendEmail = (e) => {
+    var data = {
+      service_id: 'service_huhwaft',
+      template_id: 'template_7mm0o8h',
+      user_id: 'f-9SjXE9tHqkyvmJU',
+      template_params: {
+        'message': emailBody,
+      }
+    };
 
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(data)  // body data type must match "Content-Type" header
-      });
+    fetch('https://api.emailjs.com/api/v1.0/email/send', {
 
-      const resonseJson = await response.json(); // parses JSON response into native JavaScript objects
-      console.log("resonseJson", resonseJson)
-    } catch (err) {
-      alert.error('Internal server error')
-      console.log(err)
-    }
-  }
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify(data)  // body data type must match "Content-Type" header
+    }).then(function () {
+      alert.success('Your mail is sent!');
+    }).catch(function (error) {
+      alert.error('Oops... ' + JSON.stringify(error));
+    });
+
+  };
 
   return (
     <main className="forth-container container">
-      <h1>Join our newsletter and get 20% off</h1>
+      <h1>Contact us </h1>
       <section className="forth-content">
         <p className="forth-p">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sint
@@ -40,9 +46,10 @@ function HomeForth() {
           tempore?
         </p>
         <article className="inputs">
+
           <input value={emailBody} onChange={(e) => setEmailBody(e.target.value)} placeholder="Enter Message" />
           <button
-            onClick={() => sendEmail('nnowyan@gmail.com', 'e-commerce', emailBody)}
+            onClick={sendEmail}
           >
             Contact
           </button>
