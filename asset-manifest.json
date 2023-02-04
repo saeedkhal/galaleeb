@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/e-commerce/static/css/main.143c3043.css",
+    "main.js": "/e-commerce/static/js/main.d876b348.js",
+    "static/media/aboutus.jpg": "/e-commerce/static/media/aboutus.56e77a619b4ff967215e.jpg",
+    "static/media/logo_fill.svg": "/e-commerce/static/media/logo_fill.6377d0b4ee878be052702b1a3b657977.svg",
+    "static/media/undraw_page_not_found.svg": "/e-commerce/static/media/undraw_page_not_found.e8fd12a8ae8974e734a0fe2a61021fc1.svg",
+    "static/media/logo.svg": "/e-commerce/static/media/logo.a4ca88e0e3231698d2a07efbb0d795eb.svg",
+    "static/media/shoping2.svg": "/e-commerce/static/media/shoping2.f22517a8ccff7dbf7c26e0edcd97e6a0.svg",
+    "static/media/SALogoFillBlack.svg": "/e-commerce/static/media/SALogoFillBlack.2c413077940cf9489f796b459bd1d239.svg",
+    "index.html": "/e-commerce/index.html",
+    "main.143c3043.css.map": "/e-commerce/static/css/main.143c3043.css.map",
+    "main.d876b348.js.map": "/e-commerce/static/js/main.d876b348.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.143c3043.css",
+    "static/js/main.d876b348.js"
+  ]
+}
