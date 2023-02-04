@@ -13,8 +13,10 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { GlassMagnifier } from "react-image-magnifiers";
 import Loading from "../sharedCompnents/Loading";
 import { getProduct } from '../../actions';
+import { useAlert } from 'react-alert'
 import { UPDATE_CART } from '../../assets/contsntants/constants';
 function ProductImgs() {
+  const alert = useAlert();
   const navigate = useNavigate();
   const { channels, dispatch, product, cart } = useContextProvider();
   const [loading, setLoading] = useState([]);
@@ -30,6 +32,9 @@ function ProductImgs() {
   };
 
   const addToCard = () => {
+    if (!product.fields.available) {
+      return alert.error('product not available in stock');
+    }
     const cardEl = {
       id: product.id,
       size: product.fields.sizes.find((el, index) => index === sizeIndex) || "",
@@ -60,6 +65,7 @@ function ProductImgs() {
         payload: [...cart, cardEl]
       })
     }
+    navigate('/cart')
   }
   useEffect(() => {
     getSingleProduct();
@@ -187,11 +193,10 @@ function ProductImgs() {
                 <TiPlus onClick={() => setQuantity(quantity + 1)} />
               </span>
             </div>
-            <Link to="/cart">
-              <button disabled={!product.fields.available} className="add-to-cart" onClick={addToCard}>
-                Add To Cart <IoMdAddCircleOutline />
-              </button>
-            </Link>
+            <button
+              className="add-to-cart" onClick={addToCard}>
+              Add To Cart <IoMdAddCircleOutline />
+            </button>
           </div>
         </article>
       </section>
