@@ -1,14 +1,4 @@
 :root {
-  /* --clr-primary-1: #453227;
-  --clr-primary-2: #5f4435;
-  --clr-primary-3: #795744;
-  --clr-primary-4: #936a53;
-  --clr-primary-5: #ab7a5f;
-  --clr-primary-6: #b99179;
-  --clr-primary-7: #c5a491;
-  --clr-primary-8: #d1b6a8;
-  --clr-primary-9: #decbc0;
-  --clr-primary-10: #eaded7; */
   --clr-primary-1: #7c2d12;
   --clr-primary-2: #9a3412;
   --clr-primary-3: #c2410c;
@@ -20,16 +10,16 @@
   --clr-primary-9: #ffedd5;
   --clr-primary-10: #ffedd5;
 
-  --clr-grey-1: #102a42;
-  --clr-grey-2: #243a52;
-  --clr-grey-3: #324d67;
-  --clr-grey-4: #48647f;
-  --clr-grey-5: #617d98;
-  --clr-grey-6: #829ab0;
-  --clr-grey-7: #9eb2c7;
-  --clr-grey-8: #bcccdc;
-  --clr-grey-9: #dae2ec;
-  --clr-grey-10: #f1f5f8;
+  --clr-grey-1: #0f172a;
+  --clr-grey-2: #1e293b;
+  --clr-grey-3: #334155;
+  --clr-grey-4: #475569;
+  --clr-grey-5: #64748b;
+  --clr-grey-6: #94a3b8;
+  --clr-grey-7: #cbd5e1;
+  --clr-grey-8: #e2e8f0;
+  --clr-grey-9: #f1f5f9;
+  --clr-grey-10: #f8fafc;
   --clr-white: #fff;
   --clr-red-dark: #bb2525;
   --clr-red-light: #e66b6b;
@@ -550,7 +540,7 @@ input::placeholder{
 /* end home forth section */
 /* start home footer */
 .home-footer {
-  background-color: var(--clr-grey-3);
+  background-color: var(--clr-grey-1);
   color: var(--clr-grey-10);
   text-align: center;
   padding: 20px 50px;

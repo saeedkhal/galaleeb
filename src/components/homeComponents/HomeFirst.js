@@ -1,6 +1,5 @@
 import React from 'react';
-import homefirstsec from '../../assets/images/homefirstsec.jpeg';
-import homefirstsec2 from '../../assets/images/homefirstsec2.jpeg';
+import shoping from '../../assets/images/shoping.svg';
 import { useNavigate } from 'react-router'
 function HomeFirst(props) {
   let navigate = useNavigate();
@@ -22,8 +21,7 @@ function HomeFirst(props) {
       </section>
       <section className="shop-img">
         <div className="shadow"></div>
-        <img src={homefirstsec2} alt="hero" className="img1" />
-        <img src={homefirstsec} alt="hero" className="img2" />
+        <img src={shoping} alt="hero" className="img1" />
       </section>
     </main>
   );
