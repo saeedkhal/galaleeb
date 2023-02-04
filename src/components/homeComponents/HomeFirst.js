@@ -9,7 +9,7 @@ function HomeFirst(props) {
       <section>
         <h1 className="design-header">
           design your
-          <br /> comfort zone
+          <br /> comfort Dress
         </h1>
         <p className="home-p">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at
