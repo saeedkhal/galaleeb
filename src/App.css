@@ -193,6 +193,7 @@ button {
   justify-content: space-between;
   align-items: center;
   margin: 0 20px;
+  padding: 10px 0px;
 }
 .feature-header {
   text-align: center;

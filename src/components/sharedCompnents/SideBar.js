@@ -1,6 +1,6 @@
 import React from 'react';
 import { CgClose } from 'react-icons/cg';
-import logo from '../../assets/images/logo.svg';
+import logo from '../../assets/images/logo_fill.svg';
 import { BsCartFill, BsFillPersonPlusFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { useContextProvider } from '../../context/context';
@@ -11,7 +11,13 @@ function SideBar() {
     <main className={isSidebarOpen ? 'sidebar oprnsidebare' : 'sidebar'}>
       <div className="sidebar-container">
         <section className="logo-x">
-          <img src={logo} className="logo" alt="logo" />
+          <Link to="/">
+            <article className="logo-container">
+              <span>GALALEEB</span>
+              <img src={logo} alt="logo" className="logo" />
+              <span>STORE</span>
+            </article>
+          </Link>
           <CgClose className="cross" onClick={() => CloseSideBar()} />
         </section>
         <ul className="navbar-routs-sidebar">
