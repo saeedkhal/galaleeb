@@ -12,9 +12,9 @@ function HomeForth() {
       return alert.error('please Log in first')
     }
     var data = {
-      service_id: 'service_huhwaft',
-      template_id: 'template_7mm0o8h',
-      user_id: 'f-9SjXE9tHqkyvmJU',
+      service_id: process.env.REACT_APP_SERVICE_ID,
+      template_id: process.env.REACT_APP_TEMPLATE_ID,
+      user_id: process.env.REACT_APP_USER_ID,
       template_params: {
         'message': emailBody,
         'sender_name': user?.displayName,
