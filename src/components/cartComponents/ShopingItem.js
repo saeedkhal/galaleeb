@@ -8,7 +8,6 @@ import { UPDATE_CART } from '../../assets/contsntants/constants';
 import { Link } from 'react-router-dom';
 function ShopingItem({ cartProduct }) {
   const { cart, dispatch } = useContextProvider();
-  console.log(cart)
   const updateQuantity = (quantity) => {
     const newCart = cart?.map(el => {
       if (el?.id === cartProduct?.id && el?.color === cartProduct?.color && el?.size === cartProduct?.size) {

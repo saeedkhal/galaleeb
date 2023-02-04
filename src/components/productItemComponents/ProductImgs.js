@@ -48,22 +48,21 @@ function ProductImgs() {
       freeShipping: product?.fields?.freeShipping || false
     };
 
-    const productCard = cart?.find(el => el.id === product.id);
+    const productCard = cart?.find(el => el.id === cardEl.id && cardEl?.color === el?.color && cardEl?.size === el.size);
 
-    if (cardEl?.color === productCard?.color && cardEl?.size === productCard.size) {
-      const newCard = cart.filter(el => el.id !== productCard?.id);
+    if (!productCard) {
+      dispatch({
+        type: UPDATE_CART,
+        payload: [...cart, cardEl]
+      })
+    } else {
+      const newCard = cart.filter(el => !(el.id === productCard.id && productCard?.color === el?.color && productCard?.size === el.size));
       const quantityCalc = productCard?.quantity + cardEl?.quantity;
       const subTotalCalc = cardEl?.price * quantityCalc;
       dispatch({
         type: UPDATE_CART,
         payload: [...newCard, { ...cardEl, quantity: quantityCalc, subTotal: subTotalCalc }]
       });
-
-    } else {
-      return dispatch({
-        type: UPDATE_CART,
-        payload: [...cart, cardEl]
-      })
     }
     navigate('/cart')
   }
