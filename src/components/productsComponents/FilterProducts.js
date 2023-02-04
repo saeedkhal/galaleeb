@@ -10,7 +10,7 @@ import { getProducts } from "../../actions";
 import { deltaE, hexToRgb } from "./utils";
 import sortType from "../../assets/contsntants/constantArr";
 function FilterProducts() {
-  const { dispatch, products, channels, categoryies } = useContextProvider();
+  const { dispatch, products, channels, categoryies, filteredProducts } = useContextProvider();
   const [filterObject, setFilterObject] = useState({
     category: "",
     price: 150,
@@ -251,7 +251,7 @@ function FilterProducts() {
         </section>
       </div>
       <section className="product-found">
-        23 product found
+        {`${filteredProducts?.length || 0}`} product found
         <div className="h-line">
           <hr />
         </div>
