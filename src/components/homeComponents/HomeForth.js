@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
 import { useAlert } from 'react-alert';
-
+import { useContextProvider } from '../../context/context';
 function HomeForth() {
-  const alert = useAlert()
+  const alert = useAlert();
+  const { user } = useContextProvider();
 
   const [emailBody, setEmailBody] = useState('');
 
   const sendEmail = (e) => {
+    if (!user) {
+      return alert.error('please Log in first')
+    }
     var data = {
       service_id: 'service_huhwaft',
       template_id: 'template_7mm0o8h',
       user_id: 'f-9SjXE9tHqkyvmJU',
       template_params: {
         'message': emailBody,
+        'sender_name': user?.displayName,
+        'sender_email': user?.email
       }
     };
 
