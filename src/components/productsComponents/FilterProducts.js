@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useContextProvider } from "../../context/context";
-import { UPDATE_FILTERED_PRODUCTS } from "../../assets/contsntants/constants";
+import { UPDATE_FILTERED_PRODUCTS, UPDATE_ISLOADING } from "../../assets/contsntants/constants";
 import {
   RiCheckboxCircleFill,
   RiCheckboxBlankCircleFill,
@@ -115,7 +115,15 @@ function FilterProducts() {
     dispatch({ type: UPDATE_FILTERED_PRODUCTS, payload: newProducts });
   };
   useEffect(() => {
+    dispatch({
+      type: UPDATE_ISLOADING,
+      payload: true
+    });
     filterProducts();
+    setTimeout(() => dispatch({
+      type: UPDATE_ISLOADING,
+      payload: false
+    }), 250)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterObject]);
   useEffect(() => {

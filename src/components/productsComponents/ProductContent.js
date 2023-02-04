@@ -3,12 +3,16 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useContextProvider } from "../../context/context";
 import { getProducts } from "../../actions";
-function ProductContent(props) {
-  const { dispatch, filteredProducts } = useContextProvider();
+import Loading from "../sharedCompnents/Loading";
+function ProductContent() {
+  const { dispatch, filteredProducts, isLoading } = useContextProvider();
   useEffect(() => {
     getProducts(dispatch);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  if (isLoading) {
+    return <Loading />
+  }
   return (
     <main className="container productcontent-container">
       {filteredProducts?.length ? (

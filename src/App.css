@@ -283,7 +283,7 @@ button {
 }
 .shop-now {
   color: var(--clr-grey-10);
-  background: var(--clr-primary-4);
+  background: var(--clr-primary-5);
   padding: 10px 15px;
   border-radius: 5px;
   text-transform: uppercase;
@@ -355,7 +355,7 @@ button {
 .home-secound .hr {
   width: 100px;
   margin: auto;
-  background-color: var(--clr-primary-3);
+  background-color: var(--clr-primary-5);
   height: 5px;
   margin-bottom: 20px;
 }
