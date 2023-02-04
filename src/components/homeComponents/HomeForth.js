@@ -8,8 +8,12 @@ function HomeForth() {
   const [emailBody, setEmailBody] = useState('');
 
   const sendEmail = (e) => {
-    if (!user) {
+    if (!user?.email) {
       return alert.error('please Log in first')
+    }
+    if (!emailBody.trim()) {
+      return alert.error('please provide amessage')
+
     }
     var data = {
       service_id: process.env.REACT_APP_SERVICE_ID,
