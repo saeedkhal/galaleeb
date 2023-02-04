@@ -15,7 +15,7 @@ function App() {
         <section>
           <BrowserRouter>
             <Routes>
-              <Route path="e-commerce" element={<NavSideBar />}>
+              <Route path="/" element={<NavSideBar />}>
                 <Route index element={<Home />} />
                 <Route path="about" element={<About />} />
                 <Route path="products" element={<Products />} />
