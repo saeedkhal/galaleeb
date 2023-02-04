@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBI1oj-dcdsEcwzoEmQXXwvH4t-G9OW3LM",
-    authDomain: "e-commese-auth.firebaseapp.com",
-    projectId: "e-commese-auth",
-    storageBucket: "e-commese-auth.appspot.com",
-    messagingSenderId: "220823033815",
-    appId: "1:220823033815:web:f838e889762ea768931d92"
+    apiKey: process.env.RAECT_APP_Firebase_apiKey,
+    authDomain: process.env.RAECT_APP_Firebase_authDomain,
+    projectId: process.env.RAECT_APP_Firebase_projectId,
+    storageBucket: process.env.RAECT_APP_Firebase_storageBucket,
+    messagingSenderId: process.env.RAECT_APP_Firebase_messagingSenderId,
+    appId: process.env.RAECT_APP_Firebase_appId
 };
 
 const app = initializeApp(firebaseConfig);
