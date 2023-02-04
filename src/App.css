@@ -415,6 +415,16 @@ button {
   float: right;
   color: var(--clr-primary-6);
 }
+.goback-icon{
+  color: var(--clr-primary-5);
+  font-size: 30px;
+  margin: auto;
+  width: 95%;
+  margin-top: 10px;
+}
+.goback-icon svg{
+  cursor: pointer;
+}
 .product-info p {
   margin: 0px;
 }

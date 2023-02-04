@@ -9,7 +9,7 @@ import { BsFillCircleFill } from "react-icons/bs";
 import { FaCheckCircle } from "react-icons/fa";
 import { TiPlus, TiMinus } from "react-icons/ti";
 import { IoMdArrowRoundBack, IoMdAddCircleOutline } from "react-icons/io";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { GlassMagnifier } from "react-image-magnifiers";
 import Loading from "../sharedCompnents/Loading";
 import { getProduct } from '../../actions';

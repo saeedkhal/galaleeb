@@ -3,14 +3,19 @@ import ShopingItem from './ShopingItem';
 import CeckCart from './CeckCart';
 import { useContextProvider } from '../../context/context';
 import { UPDATE_CART } from '../../assets/contsntants/constants'
-import { useNavigate } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { FiArrowLeftCircle } from 'react-icons/fi';
 
 function ShopingItems() {
   const { cart, dispatch } = useContextProvider();
   const navigate = useNavigate()
   return (
     <>
+      <Link to='/products'>
+        <div className='goback-icon'>
+          <FiArrowLeftCircle />
+        </div>
+      </Link>
       {
         !cart.length ?
           <div style={{ textAlign: 'center' }}>
