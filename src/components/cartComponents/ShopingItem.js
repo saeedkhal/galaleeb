@@ -5,7 +5,7 @@ import { VscCircleLargeFilled } from "react-icons/vsc";
 import { TiPlus, TiMinus } from "react-icons/ti";
 import { useContextProvider } from "../../context/context";
 import { UPDATE_CART } from '../../assets/contsntants/constants';
-
+import { Link } from 'react-router-dom';
 function ShopingItem({ cartProduct }) {
   const { cart, dispatch } = useContextProvider();
   console.log(cart)
@@ -34,7 +34,9 @@ function ShopingItem({ cartProduct }) {
   return (
     <main className="shop-item-container">
       <section className="shop-item">
-        <img src={cartProduct?.attchment} alt="shop" />
+        <Link to={`/Products/${cartProduct?.id}`}>
+          <img src={cartProduct?.attchment} alt="shop" />
+        </Link>
         <article className="shop-item-info">
           <h4>name : <span> {cartProduct?.name} </span> </h4>
           <div>
