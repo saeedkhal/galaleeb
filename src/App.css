@@ -631,7 +631,6 @@ input::placeholder{
 }
 .AboutSecond-content p {
   line-height: 30px;
-  font-size: calc(10px+2vw);
   color: var(--clr-grey-4);
   text-align: justify;
 }
