@@ -319,12 +319,10 @@ button {
 }
 .shop-img .img1 {
   width: 100%;
-  object-fit: cover;
   border-radius: 5px;
   z-index: 0;
   position: relative;
-  box-shadow: aliceblue;
-
+  height: 100%;
 }
 .shop-img .img2 {
   height: 150px;
@@ -1370,4 +1368,12 @@ h2 {
 
 /* '2xl': '1536px', */
 @media (min-width: 1536px) {
+}
+
+@media (max-width:750px) {
+  .shop-btn {
+    display: block;
+    margin: auto;
+    
+  }
 }

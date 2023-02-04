@@ -1,5 +1,5 @@
 import React from 'react';
-import shoping from '../../assets/images/shoping.svg';
+import shoping from '../../assets/images/shoping2.svg';
 import { useNavigate } from 'react-router'
 function HomeFirst(props) {
   let navigate = useNavigate();
@@ -17,7 +17,7 @@ function HomeFirst(props) {
           aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis
           alias?
         </p>
-        <button onClick={() => navigate('/Products')} className="shop-now">shop now</button>
+        <button onClick={() => navigate('/Products')} className="shop-now shop-btn">shop now</button>
       </section>
       <section className="shop-img">
         <div className="shadow"></div>
