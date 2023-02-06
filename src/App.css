@@ -417,6 +417,7 @@ button {
   color: var(--clr-primary-6);
 }
 .goback-icon{
+  padding: 10px 20px;
   color: var(--clr-primary-5);
   font-size: 30px;
   margin: auto;
@@ -602,7 +603,7 @@ input::placeholder{
 .container-filter {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .price-input {
   cursor: pointer;
@@ -1384,6 +1385,8 @@ h2 {
   .shop-btn {
     display: block;
     margin: auto;
-    
+  }
+  .container-filter section{
+    width: 100%;
   }
 }
