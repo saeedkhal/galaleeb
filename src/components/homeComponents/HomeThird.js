@@ -8,9 +8,7 @@ function HomeThird(props) {
           custom clothes <br /> designed only for you
         </h1>
         <p className="third-par">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dolorum
-          debitis consectetur reprehenderit non aliquam voluptates dolore aut
-          vero consequuntur.
+          Custom Clothes is a unique retail store offering tailored and personalized clothing made to individual customers' specifications. High-quality materials and skilled tailors ensure a perfect fit and stylish look.
         </p>
       </section>
       <section className="third-content">
@@ -18,27 +16,21 @@ function HomeThird(props) {
           <GiCompass />
           <h2>history</h2>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit
-            autem unde numquam nisi
+            company was founded in 1999 and has since expanded to multiple locations across the country.
           </p>
         </article>
         <article>
           <GiCompass />
           <h2>mission</h2>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit
-            autem unde numquam nisi
+            Clothes Store's mission is to provide customers with the latest fashion trends, high-quality products, and exceptional shopping experiences.
           </p>
         </article>
         <article>
           <GiCompass />
           <h2>Vission</h2>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit
-            autem unde numquam nisi
+            Clothes Store's vision is to be a leading fashion retailer, offering diverse, sustainable, and technologically-advanced products to customers globally.
           </p>
         </article>
       </section>

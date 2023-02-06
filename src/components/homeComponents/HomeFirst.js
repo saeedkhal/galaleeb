@@ -12,10 +12,7 @@ function HomeFirst(props) {
           <br /> comfort Dress
         </h1>
         <p className="home-p">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at
-          sed omnis corporis doloremque possimus velit! Repudiandae nisi odit,
-          aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis
-          alias?
+          Dress stores offer a wide range of clothing options, including the option to customize dresses to meet the unique needs and preferences of each customer. In terms of seasonal offerings, summer dresses are typically crafted from lightweight and breathable materials, such as cotton and linen, to provide comfort during warm weather
         </p>
         <button onClick={() => navigate('/Products')} className="shop-now shop-btn">shop now</button>
       </section>

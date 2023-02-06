@@ -51,9 +51,7 @@ function HomeForth() {
       <h1>Contact us </h1>
       <section className="forth-content">
         <p className="forth-p">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sint
-          unde quaerat ratione soluta veniam provident adipisci cumque eveniet
-          tempore?
+          Contact Us at Custom Clothes for personalized service and support. Our friendly and knowledgeable team is ready to answer any questions and help you with all your custom clothing needs.
         </p>
         <article className="inputs">
 
