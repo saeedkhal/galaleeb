@@ -34,7 +34,7 @@ function CeckCart() {
 
     const formData = new FormData();
     formData.append("chat_id", process.env.REACT_APP_TELEGRAM_CHAT_ID);
-    formData.append("caption", `url: ${process.env.REACT_APP_HOST}/products/${order?.id}\nsize: ${order?.size}\nmode name: ${order?.name}\ncolor: ${order?.color}\nprice: ${order?.price}\nfreeShipping: ${order?.freeShipping}\nquantity: ${order?.quantity}\nsubtotal: ${order?.subTotal}\ncustomer phone: ${phone}`);
+    formData.append("caption", `url:https://${window.location.hostname}/products/${order?.id}\nsize: ${order?.size}\nmode name: ${order?.name}\ncolor: ${order?.color}\nprice: ${order?.price}\nfreeShipping: ${order?.freeShipping}\nquantity: ${order?.quantity}\nsubtotal: ${order?.subTotal}\ncustomer phone: ${phone}`);
     formData.append("photo", photo);
     const response = await fetch(url, {
       method: "POST",
