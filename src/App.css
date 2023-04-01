@@ -1389,4 +1389,8 @@ h2 {
   .container-filter section{
     width: 100%;
   }
+  .home-p{
+   font-size: 13px;
+   line-height: 20px; 
+  }
 }

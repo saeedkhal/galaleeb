@@ -9,7 +9,7 @@ import { auth, provider } from '../firebase-auth/firebase'
 
 export const AppContext = createContext();
 const initialState = {
-  isSidebarOpen: true,
+  isSidebarOpen: false,
   products: [],
   featuredProduct: [],
   isLoading: true,
