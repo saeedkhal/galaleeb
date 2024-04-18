@@ -158,7 +158,7 @@ button {
 .sidebar {
   position: fixed;
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 100%;
   top: 0px;
   left: -100%;
   background: white;
@@ -300,10 +300,11 @@ button {
   background: var(--clr-primary-7);
 }
 .homeFirst-container {
-  padding: 30px 20px;
+  padding: 15px 20px;
   justify-content: space-between;
   grid-template-columns: 2fr 1fr;
   gap: 150px;
+  background-color: var(--clr-grey-10);
 }
 .shadow {
   width: 100px;
@@ -1250,12 +1251,9 @@ h2 {
 /* 'md': '768px', */
 @media (min-width: 768px) {
   .container {
-    padding: 50px 50px;
+    padding: 50px 300px;
   }
 
-  .design-header {
-    margin-top: 100px;
-  }
 
   .feature-content {
     display: grid;
