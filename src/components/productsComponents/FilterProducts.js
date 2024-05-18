@@ -9,6 +9,7 @@ import { FILTER_COLOR } from '../../assets/contsntants/constants'
 import { getProducts } from "../../actions";
 import { deltaE, hexToRgb } from "./utils";
 import sortType from "../../assets/contsntants/constantArr";
+import { debounce } from '../../utils'
 function FilterProducts() {
   const { dispatch, products, channels, categoryies, filteredProducts } = useContextProvider();
   const [filterObject, setFilterObject] = useState({
@@ -29,6 +30,13 @@ function FilterProducts() {
     "#7ccded",
     "#c8c8c8",
   ];
+  const seacrhByName = (v) =>{
+    setFilterObject({
+      ...filterObject,
+      searchName: v,
+    });
+  }
+  const debouncedSearch = debounce(seacrhByName, 700);
   const filterProducts = () => {
     const newProducts = products
       ?.filter((product) => {
@@ -275,11 +283,8 @@ function FilterProducts() {
       <input
         placeholder="Search"
         className="search-products"
-        onChange={(e) => {
-          setFilterObject({
-            ...filterObject,
-            searchName: e.target.value,
-          });
+        onChange={(e)=>{
+          debouncedSearch(e.target.value)
         }}
       />
     </main>

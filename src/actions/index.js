@@ -11,7 +11,7 @@ import axios from "axios";
 export const getProducts = async (dispatch) => {
   try {
     dispatch({ type: UPDATE_ISLOADING, payload: true });
-    const res = await axios.get("/Products");
+    const res = await axios.get("/Products?sort%5B0%5D%5Bfield%5D=price");
     dispatch({ type: UPDATE_PRODUCTS, payload: res.data.records });
     dispatch({ type: UPDATE_ISLOADING, payload: false });
   } catch (err) {

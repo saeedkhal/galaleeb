@@ -55,7 +55,6 @@ const AppProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    getProducts(dispatch);
     getChannels(dispatch);
     getcategoryies(dispatch);
   }, []);

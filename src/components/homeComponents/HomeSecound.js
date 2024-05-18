@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Loading from "../sharedCompnents/Loading";
 import defaultimg from "../../assets/images/defaluteimg.png";
 import { getFeatured } from "../../utils/getFeatured";
 import { useContextProvider } from "../../context/context";
+import { getProducts } from "../../actions";
 function HomeSecound() {
-  const { isLoading, products } = useContextProvider();
+  const { isLoading, products, dispatch } = useContextProvider();
   const featuredProducts = getFeatured(products, { featured: true });
+  useEffect(()=>{
+    getProducts(dispatch)
+  },[])
   if (isLoading) {
     return <Loading />;
   }
@@ -15,8 +19,8 @@ function HomeSecound() {
     <main className="home-secound container">
       <h1 className="feature-header">featured products</h1>
       <div className="hr"></div>
-      <section className="feature-content">
-        {featuredProducts.map((product, index) => {
+      <section className="feature-content" style={{gridTemplateColumns:'1fr 1fr 1fr 1fr'}}>
+        {featuredProducts?.map((product, index) => {
           return (
             <Link key={index} to={`products/${product.id}`}>
               <article>

@@ -22,7 +22,7 @@ function AboutSecond() {
             fabrics like cotton and linen are popular choices. These materials
             are breathable, making them ideal for hot weather. You can also opt
             for dresses with bright and bold patterns or prints that will help
-            you stand out in the sun. Winter dresses, 
+            you stand out in the sun.
           </p>
         </article>
         <article>
