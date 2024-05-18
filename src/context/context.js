@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../reducer/reducer";
 import { OPEN_SIDE_BAR, CLOSE_SIDE_BAR, UPDATEUSER } from "../assets/contsntants/constants";
-import { getProducts, getChannels, getcategoryies } from "../actions";
+import { getChannels, getcategoryies } from "../actions";
 import { useAlert } from 'react-alert'
 
 import { signInWithPopup, onAuthStateChanged } from "firebase/auth";
@@ -11,7 +11,7 @@ export const AppContext = createContext();
 const initialState = {
   isSidebarOpen: false,
   products: [],
-  featuredProduct: [],
+  featuredProducts: [],
   isLoading: true,
   filteredProducts: [],
   channels: [],
@@ -19,7 +19,7 @@ const initialState = {
   product: {},
   cart: !localStorage.getItem('cart')?.length ? [] : JSON.parse(localStorage.getItem('cart')),
   user: {},
-  filterColor: false
+  filterColor: false,
 };
 
 
@@ -66,7 +66,6 @@ const AppProvider = ({ children }) => {
           payload: user,
         })
       } else {
-        console.log('user', user);
         dispatch({
           type: UPDATEUSER,
           payload: {},

@@ -26,7 +26,7 @@
   --clr-green-dark: #25bb32;
   --clr-green-light: #6be675;
   --clr-black: #222;
-  --transition: all 0.3s linear;
+  --transition: all 0.1s linear;
   --spacing: 0.1rem;
   --radius: 0.25rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -144,9 +144,13 @@ button {
   color: var(--clr-grey-2);
 }
 .login {
-  margin-left: 1em;
+  margin-left: 1.5em;
   display: flex;
   align-items: center;
+  transition:var(--transition);
+}
+.login:hover{
+  color: var(--clr-primary-7);
 }
 .bars-icon {
   font-size: 2em;
@@ -243,7 +247,7 @@ button {
 
 .login img {
   border-radius: 50%;
-  width: 30px;
+  width: 40px;
   border: 2px solid var(--clr-primary-6);
 }
 
@@ -1340,6 +1344,7 @@ h2 {
   }
   .cart-login {
     display: flex;
+    align-items: center;
   }
   .navbar-routs {
     display: flex;

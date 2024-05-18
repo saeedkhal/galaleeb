@@ -3,15 +3,14 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Loading from "../sharedCompnents/Loading";
 import defaultimg from "../../assets/images/defaluteimg.png";
-import { getFeatured } from "../../utils/getFeatured";
 import { useContextProvider } from "../../context/context";
-import { getProducts } from "../../actions";
+import { getFeaturedProducts } from "../../actions";
 function HomeSecound() {
-  const { isLoading, products, dispatch } = useContextProvider();
-  const featuredProducts = getFeatured(products, { featured: true });
+  const { isLoading, featuredProducts=[], dispatch } = useContextProvider();
+  console.log(featuredProducts)
   useEffect(()=>{
-    getProducts(dispatch)
-  },[])
+    getFeaturedProducts(dispatch)
+  },[]);
   if (isLoading) {
     return <Loading />;
   }

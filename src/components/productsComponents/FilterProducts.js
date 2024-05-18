@@ -6,7 +6,6 @@ import {
   RiCheckboxBlankCircleFill,
 } from "react-icons/ri";
 import { FILTER_COLOR } from '../../assets/contsntants/constants'
-import { getProducts } from "../../actions";
 import { deltaE, hexToRgb } from "./utils";
 import sortType from "../../assets/contsntants/constantArr";
 import { debounce } from '../../utils'
@@ -134,10 +133,7 @@ function FilterProducts() {
     }), 250)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterObject]);
-  useEffect(() => {
-    getProducts(dispatch);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
   return (
     <main className="container fiterproduct-contaoner">
       <div className="container-filter">
