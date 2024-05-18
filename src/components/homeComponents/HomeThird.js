@@ -1,5 +1,7 @@
 import React from 'react';
 import { GiCompass } from 'react-icons/gi';
+import { MdHistory } from 'react-icons/md';
+import { IoMdTrendingUp } from "react-icons/io";
 function HomeThird(props) {
   return (
     <main className="home-third container">
@@ -13,7 +15,7 @@ function HomeThird(props) {
       </section>
       <section className="third-content">
         <article>
-          <GiCompass />
+          <MdHistory />
           <h2>history</h2>
           <p>
             company was founded in 1999 and has since expanded to multiple locations across the country.
@@ -27,7 +29,7 @@ function HomeThird(props) {
           </p>
         </article>
         <article>
-          <GiCompass />
+          <IoMdTrendingUp />
           <h2>Vission</h2>
           <p>
             Clothes Store's vision is to be a leading fashion retailer, offering diverse, sustainable, and technologically-advanced products to customers globally.

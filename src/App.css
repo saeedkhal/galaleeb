@@ -308,7 +308,7 @@ button {
   justify-content: space-between;
   grid-template-columns: 1fr 1fr;
   gap: 150px;
-  background-color: var(--clr-grey-10);
+  background-color: var(--clr-grey-9);
 }
 .shadow {
   width: 100px;
@@ -423,11 +423,9 @@ button {
   color: var(--clr-primary-6);
 }
 .goback-icon{
-  padding: 10px 20px;
   color: var(--clr-primary-5);
   font-size: 30px;
   margin: auto;
-  width: 95%;
   margin-top: 10px;
 }
 .goback-icon svg{
@@ -639,7 +637,7 @@ input::placeholder{
   object-fit: cover;
   object-position: top;
   border-radius: 5px;
-  max-height: 500px;
+  max-height: 554px;
 }
 .AboutSecond-content h2 {
   font-size: 3.5rem;

@@ -1,5 +1,5 @@
 import React from "react";
-import heroabout from "../../assets/images/aboutus.jpg";
+import heroabout from "../../assets/images/logo.svg";
 import { useNavigate } from "react-router-dom";
 function AboutSecond() {
   const navigate = useNavigate();

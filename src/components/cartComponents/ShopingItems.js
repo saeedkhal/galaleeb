@@ -11,11 +11,13 @@ function ShopingItems() {
   const navigate = useNavigate()
   return (
     <>
+      <div className='container' style={{paddingTop:'0px', paddingBottom:'0px'}}>
       <Link to='/products'>
         <div className='goback-icon'>
           <FiArrowLeftCircle />
         </div>
       </Link>
+      </div>
       {
         !cart.length ?
           <div style={{ textAlign: 'center' }}>

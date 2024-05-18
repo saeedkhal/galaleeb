@@ -3,7 +3,7 @@ import React from "react";
 import { GoThreeBars } from "react-icons/go";
 import { BsCartFill, BsFillPersonPlusFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo_fill.svg";
+import logo from "../../assets/images/logo.svg";
 import { useContextProvider } from "../../context/context";
 function Navbare() {
   const { OpenSidebar, cart, signInwithGoogle, user, logOut } = useContextProvider();
@@ -13,9 +13,7 @@ function Navbare() {
       <section className="nav-bar container">
         <Link to="/">
           <article className="logo-container">
-            <span>GALALEEB</span>
             <img src={logo} alt="logo" className="logo" />
-            <span>STORE</span>
           </article>
         </Link>
 
