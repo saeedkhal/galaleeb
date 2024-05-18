@@ -91,11 +91,8 @@ function ProductImgs() {
             <IoMdArrowRoundBack />
             Back to products
           </button>
-          <GlassMagnifier
-            imageSrc={product.fields.attachments[activeIndex].url}
-            imageAlt="Example"
-            className="active-img"
-          />
+          <img className="active-img" alt="img" src={product.fields.attachments[activeIndex].url ?? ''} />
+
           <div className="imgesitem-container">
             {product.fields.attachments.map((img, index) => {
               return (

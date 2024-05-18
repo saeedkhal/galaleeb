@@ -16,7 +16,7 @@ function ProductContent() {
   return (
     <main className="container productcontent-container">
       {filteredProducts?.length ? (
-        <section className="feature-content grid-4">
+        <section className="feature-content">
           {filteredProducts?.map((product, index) => {
             const { id, fields } = product;
             return (
