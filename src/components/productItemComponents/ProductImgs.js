@@ -70,7 +70,7 @@ function ProductImgs() {
   const [touchEnd, setTouchEnd] = useState(null)
   
   // the required distance between touchStart and touchEnd to be detected as a swipe
-  const minSwipeDistance = 50 
+  const minSwipeDistance = 30 
   
   const onTouchStart = (e) => {
     setTouchEnd(null) // otherwise the swipe is fired even with usual touch events
@@ -85,10 +85,10 @@ function ProductImgs() {
     const isLeftSwipe = distance > minSwipeDistance
     const isRightSwipe = distance < -minSwipeDistance;
     if(isLeftSwipe){
-      const nextIndex = Math.min(activeIndex+1, product?.fields?.attachments?.length);
+      const nextIndex = activeIndex+1 === product?.fields?.attachments?.length ? 0 :activeIndex+1;
       setActiveIndex(nextIndex)
     }if(isRightSwipe){
-      const nextIndex = Math.max(activeIndex-1, 0);
+      const nextIndex = activeIndex-1 === -1 ? product?.fields?.attachments?.length-1 : activeIndex-1;
       setActiveIndex(nextIndex)
     }
     // add your conditional logic here
