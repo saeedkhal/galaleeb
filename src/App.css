@@ -574,9 +574,11 @@ input::placeholder{
   align-items: center;
   align-self: flex-end;
 }
-.home-footer span {
+.home-footer a {
   color: var(--clr-primary-5);
   margin-left: 10px;
+  text-decoration:underline;
+  text-underline-offset: 3px;
 }
 .home-footer div {
   align-self: center;
