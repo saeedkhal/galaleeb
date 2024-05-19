@@ -59,14 +59,20 @@ function ShopingItem({ cartProduct }) {
           <TiPlus onClick={() => updateQuantity(cartProduct?.quantity + 1)} />
         </span>
       </section>
-      <section>
-        <span className="subtotal">{cartProduct?.subTotal}$</span>
-        <button onClick={removeProduct} className="im-bin">
-          <ImBin />
-        </button>
-        <button onClick={removeProduct} className="im-cross">
-          <ImCross />
-        </button>
+      <section className='subtotal-container'>
+        <div className="sub-total-text"> 
+          Subtotal
+        </div>
+        <div className="sub-total-amount">
+          <span className="subtotal">{cartProduct?.subTotal}$</span>
+          <button onClick={removeProduct} className="im-bin">
+            <ImBin />
+          </button>
+          <button onClick={removeProduct} className="im-cross">
+            <ImCross />
+          </button>
+        </div>
+
       </section>
     </main>
   );

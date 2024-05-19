@@ -29,7 +29,9 @@ function AboutSecond() {
           <img src={heroabout} alt="about" />
         </article>
       </section>
-      <button className="shop-now shop-btn" onClick={() => navigate('/Products')}>Shop</button>
+      <section className="btn">
+        <button className="shop-now shop-btn" onClick={() => navigate('/Products')}>Shop</button>
+      </section>
     </main>
   );
 }

@@ -66,6 +66,34 @@ function ProductImgs() {
     }
     navigate('/cart')
   }
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
+  
+  // the required distance between touchStart and touchEnd to be detected as a swipe
+  const minSwipeDistance = 50 
+  
+  const onTouchStart = (e) => {
+    setTouchEnd(null) // otherwise the swipe is fired even with usual touch events
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+  
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX)
+  
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance;
+    if(isLeftSwipe){
+      const nextIndex = Math.min(activeIndex+1, product?.fields?.attachments?.length);
+      setActiveIndex(nextIndex)
+    }if(isRightSwipe){
+      const nextIndex = Math.max(activeIndex-1, 0);
+      setActiveIndex(nextIndex)
+    }
+    // add your conditional logic here
+  }
+
   useEffect(() => {
     getSingleProduct();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -77,6 +105,7 @@ function ProductImgs() {
   if (!Object.keys(product).length) {
     return navigate('/err');
   }
+
 
   return (
     <main className="container">
@@ -91,7 +120,9 @@ function ProductImgs() {
             <IoMdArrowRoundBack />
             Back to products
           </button>
-          <img className="active-img" alt="img" src={product.fields.attachments[activeIndex].url ?? ''} />
+          <img 
+          onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}
+          className="active-img" alt="img" src={product.fields.attachments[activeIndex].url ?? ''} />
 
           <div className="imgesitem-container">
             {product.fields.attachments.map((img, index) => {

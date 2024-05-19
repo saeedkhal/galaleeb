@@ -30,8 +30,8 @@ function ShopingItems() {
           <main className="container shop-items-container">
             <section className="shoping-header">
               <article>Item</article>
-              <article>Quantity</article>
               <article className="subtotal-header">SubTotal</article>
+              <article className='quantity-header'>Quantity</article>
             </section>
             <section className="shop-items">
               {

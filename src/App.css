@@ -161,7 +161,7 @@ button {
 /* sidebar */
 .sidebar {
   position: fixed;
-  min-height: 100vh;
+  min-height: 100svh;
   min-width: 100%;
   top: 0px;
   left: -100%;
@@ -283,7 +283,7 @@ button {
 .home-p {
   color: var(--clr-grey-6);
   line-height: 25px;
-  font-size: 18px;
+  font-size: 14px;
   max-width: 40rem;
 }
 .shop-now {
@@ -295,6 +295,7 @@ button {
   letter-spacing: 2px;
   cursor: pointer;
   transition: var(--transition);
+  margin-bottom: 20px;
 }
 .shop-now a{
   color: var(--clr-grey-10);
@@ -427,6 +428,7 @@ button {
   font-size: 30px;
   margin: auto;
   margin-top: 10px;
+  display: inline-block;
 }
 .goback-icon svg{
   cursor: pointer;
@@ -505,19 +507,20 @@ button {
   letter-spacing: var(--spacing);
   font-size: 30px;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+  margin-top: 0px;
 
 }
 .forth-container .forth-p {
   color: var(--clr-grey-6);
   margin-bottom: 50px;
-  font-size: x-large;
+  font-size: medium;
   max-width: 30rem;
   background-image: url('/public/blob.svg');
   background-repeat: no-repeat;
-  background-position: top;
-  background-size:200px;
-
+  background-position: center;
+  background-size: 120px;
+  text-align: center;
 }
 .inputs button {
   color: var(--clr-grey-10);
@@ -581,6 +584,9 @@ input::placeholder{
   align-items: center;
   justify-content: center;
 }
+.home-footer div:nth-of-type(1){
+  font-size: 12px;
+}
 .logo-creator {
   width: 50px;
 }
@@ -640,7 +646,8 @@ input::placeholder{
   max-height: 554px;
 }
 .AboutSecond-content h2 {
-  font-size: 3.5rem;
+  font-size: 2rem;
+  margin-top: 10px;
   text-transform: capitalize;
   color: var(--clr-grey-3);
   margin-bottom: 10px;
@@ -650,7 +657,7 @@ input::placeholder{
   line-height: 30px;
   color: var(--clr-grey-6);
   text-align: justify;
-  font-size: larger;
+  font-size: medium;
 }
 .AboutSecond-content .hr {
   width: 100px;
@@ -763,11 +770,12 @@ input::placeholder{
 }
 .shop-item-container {
   display: grid;
-  grid-template-columns: 1fr auto auto ;
+  grid-template-columns: 1fr  ;
   grid-column-gap: 20px;
   font-size: 15px;
-  padding: 20px 0px;
+  padding: 10px 0px;
   border-bottom: 1px solid var(--clr-grey-6);
+  position: relative;
 }
 .shop-item-container section {
   display: flex;
@@ -786,9 +794,8 @@ input::placeholder{
   margin: unset;
 }
 .shop-item-container section img {
-  width: 95px;
-  height: 75px;
-  border-radius: 5px;
+  max-height: 100px;
+  border-radius: 10px;
   margin-right: 10px;
   object-fit: contain;
 }
@@ -813,6 +820,9 @@ input::placeholder{
 .shop-item-container .quantity {
   color: var(--clr-grey-1);
   font-weight: bolder;
+  margin-top: 10px;
+  display: inline-flex;
+  justify-content: center;
 }
 .shop-item-container .quantity svg {
   cursor: pointer;
@@ -839,9 +849,13 @@ input::placeholder{
 .im-cross {
   align-self: flex-start;
   font-size: small;
+  position: absolute;
+  top: 22px ;
+  right: 0px;
 }
 .subtotal-header {
   text-align: start;
+  display: none;
 }
 .size {
   font-size: larger;
@@ -956,7 +970,7 @@ h2 {
   gap: 10px;
 }
 .imgesitem-container img {
-  width: 9%;
+  width: 20%;
   cursor: pointer;
   border-radius: var(--radius);
   box-sizing: border-box;
@@ -965,7 +979,8 @@ h2 {
   margin: auto;
   border-radius: 5px;
   margin-bottom: 15px;
-  height: 500px;
+  width: 100%;
+  max-height: 500px;
   object-fit: contain
 
 }
@@ -1052,7 +1067,7 @@ h2 {
   margin-top: 54px;
 }
 .increase-decrease span {
-  margin: 0 20px !important;
+  margin: 0 10px !important;
   font-size: xx-large;
   font-weight: bold;
   color: var(--clr-grey-2);
@@ -1249,6 +1264,32 @@ h2 {
   background-color: var(--clr-black);
 }
 
+.AboutSecond-content h6 {
+  margin-top: 0px;
+  font-size: 20px;
+  letter-spacing: 10px;
+  color: var(--clr-grey-6);
+  margin-bottom:5px ;
+  text-transform: capitalize;
+}
+.doodle {
+  background-image: url('/public/doodle.svg');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 170px;
+}
+
+.quantity-header{
+  display: none;
+}
+.shop-item-container .subtotal-container{
+  display: flex;
+  justify-content: space-between;
+}
+.AboutSecond-content~.btn{
+  display: flex;
+  justify-content: center;
+}
 /* end preloader */
 /* 'sm': '640px', */
 @media (min-width: 640px) {
@@ -1266,28 +1307,38 @@ h2 {
   }
 }
 
-  .AboutSecond-content h6 {
-    margin-top: 0px;
-    font-size: 20px;
-    letter-spacing: 10px;
-    color: var(--clr-grey-6);
-    margin-bottom:5px ;
-    text-transform: capitalize;
-  }
-  .doodle {
-    background-image: url('/public/doodle.svg');
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: 170px;
-  }
 
 /* 'md': '768px', */
 @media (min-width: 768px) {
-
+  .imgesitem-container img {
+    width: 9%;
+  }
+  .AboutSecond-content~.btn{
+    display: block;
+  }
+  .AboutSecond-content h2{
+    margin-top: 0px;
+    font-size: 3.5rem;
+  }
   .container {
     padding: 50px 100px;
   }
-
+  .quantity-header{
+    display: block;
+  }
+  .shop-item-container .quantity{
+    justify-content: start;
+  }
+  .sub-total-amount{
+    width: 100%;
+    display: flex;
+  }
+  .sub-total-text{
+    display: none;
+  }
+  .AboutSecond-content p {
+    font-size: large;
+  }
   .feature-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1333,9 +1384,18 @@ h2 {
 }
 /* 'lg': '1024px', */
 @media (min-width: 1024px) {
+  .subtotal-container{
+    display: block;
+  }
+
+  
+
   /*start  navbar */
   .container {
     padding: 50px 200px;
+  }
+  .subtotal-header{
+    display: block;
   }
   .bars-icon {
     display: none;
@@ -1355,7 +1415,13 @@ h2 {
   /* endsidebar */
   /* start home */
 
-
+  .forth-container h1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .shop-item-container {
+    grid-template-columns: 1fr auto auto;
+  }
   .feature-content {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -1381,6 +1447,8 @@ h2 {
   }
   .forth-container .forth-p {
     margin: 0px;
+    font-size: larger;
+    text-align: start;
   }
   .inputs {
     max-height: 33px;
@@ -1413,6 +1481,9 @@ h2 {
 @media (min-width: 1280px) {
   .container {
     padding: 50px 300px;
+  }
+  .home-footer div:nth-of-type(1){
+    font-size: 16px;
   }
   .feature-content {
     display: grid;
