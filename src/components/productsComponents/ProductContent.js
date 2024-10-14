@@ -19,12 +19,13 @@ function ProductContent() {
         <section className="feature-content">
           {filteredProducts?.map((product, index) => {
             const { id, fields } = product;
+            console.log(fields)
             return (
               <article key={index}>
                 <Link to={`/products/${id}`}>
                   <div className="feature-img-container">
                     <img
-                      src={fields?.attachments[fields?.activeImg]?.url}
+                      src={fields?.attachments?.[fields?.activeImg]?.url}
                       alt=""
                     />
                     <div className="search">

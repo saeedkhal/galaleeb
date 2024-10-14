@@ -7,7 +7,6 @@ import { useContextProvider } from "../../context/context";
 import { getFeaturedProducts } from "../../actions";
 function HomeSecound() {
   const { isLoading, featuredProducts=[], dispatch } = useContextProvider();
-  console.log(featuredProducts)
   useEffect(()=>{
     getFeaturedProducts(dispatch)
   },[]);
