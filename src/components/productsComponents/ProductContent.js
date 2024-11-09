@@ -19,7 +19,6 @@ function ProductContent() {
         <section className="feature-content">
           {filteredProducts?.map((product, index) => {
             const { id, fields } = product;
-            console.log(fields)
             return (
               <article key={index}>
                 <Link to={`/products/${id}`}>

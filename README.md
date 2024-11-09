@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Galaleeb E-Commerce
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Table of Contents
+- [About](#about)
+- [Demo](#demo)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Api](#api)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## about
+![img](./github.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This is a modern e-commerce web application built to provide a seamless shopping experience. Designed with usability in mind, it allows users to browse, search, and filter through a variety of products. The app also includes secure Google authentication, enabling users to log in easily, and leverages Telegram integration to send real-time order notifications. Powered by React and Redux, the app is responsive, fast, and efficient, ensuring smooth navigation and optimal performance on all devices.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Demo
+Check out the live demo of the web app [here](https://e-commerce-galaleeb.netlify.app/).
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
+- **User Authentication**: Login with Google for easy access.
+- **Product Search and Filtering**: Seamlessly search and filter products to find exactly what you’re looking for.
+- **Telegram Integration**: Send orders directly to a specified Telegram chat.
+- **Responsive Design**: Optimized for both desktop and mobile views.
+- **Smooth UX/UI**: Enhanced with animations and efficient state management using Redux.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies Used
+- **React**: Front-end JavaScript library for building user interfaces.
+- **Redux**: State management library to efficiently manage app state.
+- **Firebase Authentication**: For secure login using Google authentication.
+- **Telegram API**: To send order notifications directly to Telegram.
+- **Netlify**: Deployment platform for hosting the web app.
+- **Air Tabe**: For Api And Database Storage.
 
-### `npm run eject`
+## Api 
+[API](https://airtable.com/appAS2roJGcDlQhwh/api/docs)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Getting Started
+Follow these instructions to get a copy of the project up and running on your local machine.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
+- React.js (v18 or later)
+- npm or yarn
+- Airtable API Key and Base ID
+- A Telegram bot token (for order notifications)
+- Firebase project (for Google authentication)
+- Create your own env file and add those variable in
+    ```REACT_APP_TELEGRAM_API_KEY
+    REACT_APP_TELEGRAM_CHAT_ID
+    REACT_APP_AIR_TABLE_API_TOKEN
+    REACT_APP_HOST
+    REACT_APP_SERVICE_ID 
+    REACT_APP_TEMPLATE_ID 
+    REACT_APP_USER_ID
+    REACT_APP_Firebase_apiKey 
+    REACT_APP_Firebase_authDomain 
+    REACT_APP_Firebase_projectId 
+    REACT_APP_Firebase_storageBucket
+    REACT_APP_Firebase_messagingSenderId
+    REACT_APP_Firebase_appId
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### Installation
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/saeedkhal/galaleeb.git
+   cd galaleeb
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. **Install Dependancies**
+   ```bash
+   npm i
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+2. **Start Development**
+   ```bash
+   npm start
