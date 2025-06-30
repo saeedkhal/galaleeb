@@ -14,6 +14,7 @@
 
 ## About
 ![img](./github.png)
+![img](./github.png)
 
 This is a modern e-commerce web application built to provide a seamless shopping experience. Designed with usability in mind, it allows users to browse, search, and filter through a variety of products. The app also includes secure Google authentication, enabling users to log in easily, and leverages Telegram integration to send real-time order notifications. Powered by React and Redux, the app is responsive, fast, and efficient, ensuring smooth navigation and optimal performance on all devices.
 
